@@ -1,0 +1,18 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Getting started with CMS React
+-->
+{% extends "./layouts/base.hubl.html" %}
+
+{% block body %}
+
+  {% module
+    "gettingStarted"
+    path="../components/modules/Home.jsx",
+    brandColors="{{ theme.brand_color }}",
+  %}
+
+  {# Test #}
+
+{% endblock body %}
