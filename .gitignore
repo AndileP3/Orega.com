@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+dist/
+.env
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS-generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Build output
+build/
+*.out
+*.class
+
+# Others
+*.bak
+*.tmp
+
+# Ignore YAML files
+*.yml
