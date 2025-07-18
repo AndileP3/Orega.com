@@ -6,15 +6,15 @@
 {% extends "./layouts/base.hubl.html" %}
 
 {% block body %}
-  {% include "../partials/header.html" %}
-  
+  {% include "../partials/header.hubl.html" %}
+
   <main>
-    {% module "hero_section" path="../components/modules/hero", label="Hero Section" %}
+    {% module "hero_section" path="../components/modules/hero.jsx", label="Hero Section" %}
 
-    {% module "office_search" path="../components/modules/officesearch", label="Office Search" %}
+    {% module "office_search" path="../components/modules/officesearch.jsx", label="Office Search" %}
 
-    {% module "contact_section" path="../components/modules/contact", label="Contact Section" %}
+    {% module "contact_section" path="../components/modules/contact.jsx", label="Contact Section" %}
   </main>
-  
-  {% include "../partials/footer.html" %}
+
+  {% include "../partials/footer.hubl.html" %}
 {% endblock body %}
