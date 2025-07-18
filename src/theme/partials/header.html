@@ -1,0 +1,20 @@
+<!--
+  templateType: global_partial
+  label: Header
+-->
+<link rel="stylesheet" href="{{ get_asset_url('../styles/header.css') }}">
+
+<header class="header">
+  <div class="header__container">
+    <div class="header__logo-container">
+      <img src="{{ get_asset_url('../assets/logo.png') }}" alt="{{ site_settings.company_name || 'Orega' }} Logo" class="header__logo">
+    </div>
+    <nav class="header__nav">
+      <a href="/" class="header__nav-link">Home</a>
+      <a href="/spaces" class="header__nav-link">Spaces</a>
+      <a href="/locations" class="header__nav-link">Locations</a>
+      <a href="/services" class="header__nav-link">Services</a>
+      <a href="/contact" class="header__contact-link">Contact Us</a>
+    </nav>
+  </div>
+</header>
