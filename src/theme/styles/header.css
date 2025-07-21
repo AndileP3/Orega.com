@@ -1,11 +1,21 @@
-/* Header Styles */
+/* Fonts & Brand Colors (Orega Inspired) */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --primary-color: #0E9296;
+  --text-color: #07374E;
+  --font-family: 'Open Sans', sans-serif;
+}
+
+/* Header Base */
 .header {
-  background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 1rem 0;
+  font-family: var(--font-family);
+   padding: 0.5rem 0 0.5rem 0;
 }
 
 .header__container {
@@ -14,69 +24,149 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.header__logo-container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  padding: 1rem 2rem;
 }
 
 .header__logo {
-  height: 50px;
+  height: 45px;
   width: auto;
-}
-
-.header__company-name {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #2c3e50;
 }
 
 .header__nav {
   display: flex;
-  gap: 2rem;
   align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.header__nav-item {
+  position: relative;
 }
 
 .header__nav-link {
   text-decoration: none;
-  color: #2c3e50;
+  color: var(--text-color);
   font-weight: 600;
-  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
 }
 
 .header__nav-link:hover {
-  color: #3498db;
+  color: var(--primary-color);
 }
 
 .header__contact-link {
   text-decoration: none;
-  color: #2c3e50;
-  font-weight: 600;
-  padding: 0.5rem 1.5rem;
-  border: 2px solid #3498db;
+  font-weight: 800;
+  padding: 0.7rem 1.5rem;
+  background-color: white;
+  color: var(--primary-color);
   border-radius: 25px;
-  transition: all 0.3s ease;
+  border: 1px solid var(--primary-color);
+  transition: background-color 0.3s ease;
 }
 
 .header__contact-link:hover {
-  background-color: #3498db;
   color: white;
+  background-color: var(--primary-color);
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* Dropdown Menu */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  min-width: 180px;
+  z-index: 10;
+}
+
+.dropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dropdown a:hover {
+  background-color: #f0f4f8;
+}
+
+/* Show dropdown on hover */
+.header__nav-item:hover .dropdown {
+  display: block;
+}
+
+
+/* Toggle Button (hidden on desktop) */
+.header__toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* Mobile Styles */
+@media (max-width: 868px) {
   .header__container {
-    flex-direction: column;
-    gap: 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 1rem;
   }
 
-  .header__nav {
-    flex-wrap: wrap;
+  .header__toggle {
+    display: block;
+    position: absolute;
+    left: 1rem;
+  }
+
+  .header__logo-container {
+    flex: 1;
+    display: flex;
     justify-content: center;
+  }
+
+  .header__contact-link {
+    order: 3;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .header__nav {
+    display: none;
+    flex-direction: column;
     gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 99;
+  }
+
+  .header__nav.show {
+    display: flex;
+  }
+
+  .dropdown {
+    position: static;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .dropdown a {
+    padding-left: 1rem;
   }
 }
+
