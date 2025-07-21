@@ -6,15 +6,50 @@
 
 <header class="header">
   <div class="header__container">
+    
+    <!-- Mobile Toggle Button -->
+    <button class="header__toggle" id="menu-toggle" aria-label="Toggle Menu">&#9776;</button>
+
+    <!-- Logo -->
     <div class="header__logo-container">
-      <img src="{{ get_asset_url('../assets/logo.png') }}" alt="{{ site_settings.company_name || 'Orega' }} Logo" class="header__logo">
+      <a href="../templates/page.hubl.html">
+        <img src="{{ get_asset_url('../assets/logo.png') }}" alt="{{ site_settings.company_name || 'Orega' }} Logo" class="header__logo">
+      </a>
     </div>
-    <nav class="header__nav">
-      <a href="/" class="header__nav-link">Home</a>
-      <a href="/spaces" class="header__nav-link">Spaces</a>
-      <a href="/locations" class="header__nav-link">Locations</a>
-      <a href="/services" class="header__nav-link">Services</a>
-      <a href="/contact" class="header__contact-link">Contact Us</a>
+
+    <!-- Navigation (Collapsible in mobile) -->
+    <nav class="header__nav" id="mobile-nav">
+      <div class="header__nav-item">
+        <a href="/locations" class="header__nav-link">Locations</a>
+        <div class="dropdown">
+          <a href="/locations/london">London</a>
+          <a href="/locations/manchester">Manchester</a>
+          <a href="/locations/leeds">Leeds</a>
+        </div>
+      </div>
+
+      <div class="header__nav-item">
+        <a href="/services" class="header__nav-link">Services</a>
+        <div class="dropdown">
+          <a href="/services/private-offices">Private Offices</a>
+          <a href="/services/meeting-rooms">Meeting Rooms</a>
+        </div>
+      </div>
+
+      <a href="/about" class="header__nav-link">About</a>
+      <a href="/landlords" class="header__nav-link">Landlords</a>
+      <a href="/news" class="header__nav-link">News & Views</a>
+     <a href="/contact" class="header__contact-link">Contact Us</a>
     </nav>
   </div>
 </header>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("mobile-nav");
+
+    toggle.addEventListener("click", function () {
+      nav.classList.toggle("show");
+    });
+  });
+</script>
