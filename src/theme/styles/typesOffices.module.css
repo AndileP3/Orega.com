@@ -1,0 +1,80 @@
+.typesSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px;
+}
+
+.officeCard {
+  position: relative;
+  /* no background image by default */
+  background-color: #f7f7f7;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, background-image 0.3s ease, filter 0.3s ease;
+  min-height: 400px;
+}
+
+/* Show bg image only on hover */
+.officeCard:hover {
+  background-image: var(--bg-url);
+  background-size: cover;
+  background-position: center;
+  transform: translateY(-8px);
+  filter: brightness(1.05);
+}
+
+.cardContent {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Dark gradient on hover for readability */
+.officeCard:hover .cardContent {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  color: #fff;
+}
+
+/* Hide the icon on hover */
+.officeImg {
+  width: 100px;
+  margin-bottom: 10px;
+  transition: opacity 0.2s ease;
+}
+
+.officeCard:hover .officeImg {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.button {
+  background: #fff;
+  border: 2px solid #003d4c;
+  border-radius: 50px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.officeCard:hover .button {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+.button:hover {
+  background: #003d4c;
+  color: #fff;
+}
