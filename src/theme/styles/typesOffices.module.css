@@ -1,15 +1,14 @@
 .typesSection {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 40px;
+  gap: 0px;
+  padding: 0px;
+   font-family: sans-serif;
 }
 
 .officeCard {
   position: relative;
-  /* no background image by default */
-  background-color: #f7f7f7;
-  border-radius: 12px;
+  background-color: #ffffffff;
   overflow: hidden;
   transition: transform 0.3s ease, background-image 0.3s ease, filter 0.3s ease;
   min-height: 400px;
@@ -20,18 +19,17 @@
   background-image: var(--bg-url);
   background-size: cover;
   background-position: center;
-  transform: translateY(-8px);
   filter: brightness(1.05);
 }
 
+
 .cardContent {
   background: rgba(255, 255, 255, 0.95);
-  padding: 20px;
-  border-radius: 12px;
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
+  padding:20px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -39,9 +37,9 @@
 .officeCard:hover .cardContent {
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.8) 0%,
+    #00324e 0%,
     rgba(0, 0, 0, 0.6) 40%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 51, 145, 0) 100%
   );
   color: #fff;
 }
