@@ -2,36 +2,55 @@
   padding: 2rem;
   background-color: #f8fafc;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .heading {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-}
-
-.carouselWrapper {
-  position: relative;
-  overflow: hidden;
+  color: #333;
 }
 
 .carousel {
   display: flex;
   overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  gap: 16px;
+  padding: 16px;
+  scrollbar-width: auto; /* Show scrollbar */
+  scrollbar-color: #888 #f1f1f1; /* Scrollbar colors */
+}
+
+/* Custom scrollbar for WebKit browsers */
+.carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.carousel::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .card {
-  flex: 0 0 33.3333%;
-  max-width: 33.3333%;
-  box-sizing: border-box;
-  padding: 1rem;
-  scroll-snap-align: start;
+  flex: 0 0 300px;
   background: white;
   border-radius: 10px;
-  margin-right: 1rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .image {
@@ -39,27 +58,37 @@
   height: 180px;
   object-fit: cover;
   border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
 .cardContent {
   text-align: left;
-  margin-top: 1rem;
+}
+
+.cardContent h3 {
+  margin: 0 0 0.5rem 0;
+  color: #222;
 }
 
 .location {
   color: #00707c;
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: #555;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
 }
 
 .transport {
   font-size: 0.85rem;
-  color: #555;
-  margin-top: 0.5rem;
+  color: #777;
+  margin-bottom: 1rem;
 }
 
 .buttons {
-  margin-top: 1rem;
   display: flex;
   gap: 0.5rem;
 }
@@ -70,6 +99,8 @@
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
+  font-weight: 600;
+  flex: 1;
 }
 
 .infoBtn {
@@ -79,47 +110,19 @@
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
+  font-weight: 600;
+  flex: 1;
 }
 
-.arrowLeft,
-.arrowRight {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 10;
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 250px;
+  }
 }
-
-.arrowLeft {
-  left: 0;
-}
-
-.arrowRight {
-  right: 0;
-}
-
-.dots {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.active {
-  background: #00707c;
+/* featuredLocations.module.css */
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
 }
