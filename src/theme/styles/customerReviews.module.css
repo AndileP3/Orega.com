@@ -1,0 +1,68 @@
+.reviewSection {
+  background-color: #f9f9fb;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.heading {
+  font-size: 28px;
+  color: #003049;
+  margin-bottom: 40px;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card {
+  flex: 0 0 calc(33.333% - 20px); /* Show 3 cards per view */
+  scroll-snap-align: start;
+  background: #fff;
+  padding: 30px 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  text-align: left;
+  min-height: 280px;
+}
+
+.quoteIcon {
+  font-size: 32px;
+  color: #ff6f61;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: #ff6f61;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.text {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.name {
+  font-weight: bold;
+  color: #000;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+  .card {
+    flex: 0 0 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    flex: 0 0 100%;
+  }
+}
