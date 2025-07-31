@@ -1,7 +1,7 @@
 <!--
   templateType: page
   isAvailableForNewContent: true
-  label: Contact Page Template
+  label: Services Page Template
 -->
 {% extends "./layouts/base.hubl.html" %}
 
@@ -10,9 +10,9 @@
 
   <main>
 
-    {% module "contact_us_section" path="../components/modules/contact.jsx", label="Contact Us Section" %}
+    {% module "contact_us_section" path="../components/modules/.jsx", label="Contact Us Section" %}
 
   </main>
 
-
+  {% include "../partials/footer.hubl.html" %}
 {% endblock body %}
