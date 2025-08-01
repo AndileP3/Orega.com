@@ -28,8 +28,8 @@
 }
 
 .header__logo {
-  height: 45px;
-  width: auto;
+  height: auto;
+  width: 84px;
 }
 
 .header__nav {
@@ -50,7 +50,7 @@
   color: var(--text-color);
   font-weight: 700;
   position: relative;
-  padding: 1.8rem 0;
+  padding: 41px 10px;
 }
 
 .header__nav-link:hover {
@@ -61,7 +61,7 @@
 .header__contact-link {
   text-decoration: none;
   font-weight: 800;
-  padding: 0.7rem 1.5rem;
+  padding: 0.9rem 2rem;
   background-color: white;
   color: var(--primary-color);
   border-radius: 25px;
@@ -78,12 +78,11 @@
 .dropdown {
   display: none;
   position: absolute;
-  top: 59px;
+  top: 69.2px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #f7f7f9;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-radius: 4px;
   padding: 0.5rem 0;
   min-width: 200px;
   z-index: 10;
