@@ -62,7 +62,7 @@ export function Component({ fieldValues }) {
   </div>
   <div className={styles.supportItem}>
     <img
-      src="https://cdn-icons-png.flaticon.com/512/724/724664.png"
+      src="https://www.orega.com/hubfs/phone-icon.svg"
       alt="Phone Icon"
       className={styles.phoneIcon}
     />
