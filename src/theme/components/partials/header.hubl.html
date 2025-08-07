@@ -2,6 +2,7 @@
   templateType: global_partial
   label: Header
 -->
+
 <link rel="stylesheet" href="{{ get_asset_url('../../styles/header.css') }}">
 
 <header class="header">
@@ -12,53 +13,74 @@
 
     <!-- Logo -->
     <div class="header__logo-container">
-      <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/page.hubl.html">
-        <img src="{{ get_asset_url('../../assets/logo.png') }}" alt="{{ site_settings.company_name || 'Orega' }} Logo" class="header__logo">
+      <a href="/">
+        <img src="{{ get_asset_url('../../assets/logo.png') }}" alt="Orega" class="header__logo">
       </a>
     </div>
 
-    <!-- Navigation (Collapsible in mobile) -->
+    <!-- Navigation -->
     <nav class="header__nav" id="mobile-nav">
-      <div class="header__nav-item">
-        <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/locations.hubl.html" class="header__nav-link">Locations</a>
-        <div class="dropdown">
-          <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/locations/london.hubl.html">London</a>
-          <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/locations/manchester.hubl.html">Manchester</a>
-          <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/locations/leeds.hubl.html">North</a>
-          <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/locations/leeds.hubl.html">Midlands</a>
-          <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/locations/leeds.hubl.html">South</a>
-          <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/locations/leeds.hubl.html">Scotland</a>
-        </div>
-      </div>
+      {% set navigation = [
+        {
+          "label": "Locations",
+          "url": "/locations",
+          "dropdownItems": [
+            { "label": "London", "url": "#" },
+            { "label": "Manchester", "url": "#" },
+            { "label": "North", "url": "#" },
+            { "label": "Midlands", "url": "#" },
+            { "label": "South", "url": "#" },
+            { "label": "Scotland", "url": "#" }
+          ]
+        },
+        {
+          "label": "Services",
+          "url": "/services",
+          "dropdownItems": [
+            { "label": "Serviced Offices", "url": "#" },
+            { "label": "Virtual Offices", "url": "#" },
+            { "label": "Meeting Rooms", "url": "#" },
+            { "label": "Coworking", "url": "#" },
+            { "label": "Temporary Offices", "url": "#" }
+          ]
+        },
+        {
+          "label": "About",
+          "url": "/about"
+        },
+        {
+          "label": "Landlords",
+          "url": "/landlords"
+        },
+        {
+          "label": "News & Views",
+          "url": "/news"
+        },
+        {
+          "label": "Contact Us",
+          "url": "/contact",
+          "isContact": true
+        }
+      ] %}
 
-      <div class="header__nav-item">
-        <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/services.hubl.html" class="header__nav-link">Services</a>
-        <div class="dropdown">
-          <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/services/private-offices.hubl.html">Serviced Offices</a>
-          <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/services/meeting-rooms.hubl.html">Virtual Offices</a>
-          <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/services/meeting-rooms.hubl.html">Meeting Rooms</a>
-          <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/services/meeting-rooms.hubl.html">Coworking</a>
-        
-          <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/services/meeting-rooms.hubl.html">Temporary Offices</a>
+      {% for item in navigation %}
+        <div class="header__nav-item">
+          <a href="{{ item.url }}" class="{{ 'header__contact-link' if item.isContact else 'header__nav-link' }}">
+            {{ item.label }}
+          </a>
+          {% if item.dropdownItems %}
+            <div class="dropdown">
+              {% for drop in item.dropdownItems %}
+                <a href="{{ drop.url }}">{{ drop.label }}</a>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
-      </div>
-     
-      <div class="header__nav-item">
-      <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/about.hubl.html" class="header__nav-link">About</a>
-      </div>
-      <div class="header__nav-item">
-      <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/landlords.hubl.html" class="header__nav-link">Landlords</a>
-      </div>
-      <div class="header__nav-item">
-      <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/news.hubl.html" class="header__nav-link">News & Views</a>
-      </div>
-      <div class="header__nav-item">
-      <a href="http://hslocal.net:3000/template/@projects/Orega.com/theme/templates/contact.hubl.html" class="header__contact-link">Contact Us</a>
-      </div>
-      </div>
+      {% endfor %}
     </nav>
   </div>
 </header>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.getElementById("menu-toggle");
