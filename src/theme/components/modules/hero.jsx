@@ -1,21 +1,28 @@
-import { ModuleFields, TextField } from '@hubspot/cms-components/fields';
-import styles from '../../styles/hero.module.css';
+import { ModuleFields, TextField, ImageField } from '@hubspot/cms-components/fields';
+import styles from '../../styles/hero.module.css'; // Your custom styles
 
 export function Component({ fieldValues }) {
   const {
     title = "Flexible workspace to unlock your potential.",
     subtitle = "Stylish, flexible office space without the headaches of old-fashioned leases.",
     buttonText = "Find",
+    backgroundImage,
   } = fieldValues;
+  const backgroundImageUrl = backgroundImage?.url || 'https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaLimeStreet_Reception&BreakoutSpace2-2.jpg?width=1200&height=580&name=OregaLimeStreet_Reception&BreakoutSpace2-2.jpg';
+
 
   return (
-    <section className={styles.hero}>
-      {/* Editable fields visible in editor/preview */}
-      <ModuleFields>
-        <TextField name="title" label="Main Heading" />
-        <TextField name="subtitle" label="Subtitle" />
-        <TextField name="buttonText" label="CTA Button Text" />
-      </ModuleFields>
+<section
+  className={styles.hero}
+  style={{
+    backgroundImage: `linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%), url(${backgroundImageUrl})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  }}
+>
+
+
 
       <div className={styles.contentContainer}>
         <div className={styles.content}>
@@ -59,7 +66,6 @@ export function Component({ fieldValues }) {
         </div>
       </div>
 
-      {/* Support Info Section */}
       <div className={styles.supportContainer}>
         <div className={styles.supportItem}>
           <strong>Need help? Call us today on</strong>
@@ -80,7 +86,6 @@ export function Component({ fieldValues }) {
   );
 }
 
-// ✅ Required named export so HubSpot knows the editable fields
 export const fields = (
   <ModuleFields>
     <TextField
@@ -98,10 +103,13 @@ export const fields = (
       label="CTA Button Text"
       default="Find"
     />
+    <ImageField
+      name="backgroundImage"
+      label="Background Image"
+    />
   </ModuleFields>
 );
 
-// Optional: Give your module a name in the HubSpot editor
 export const meta = {
   label: 'Hero Section',
 };
