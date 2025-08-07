@@ -106,6 +106,7 @@ export const fields = (
     <ImageField
       name="backgroundImage"
       label="Background Image"
+      default=""
     />
   </ModuleFields>
 );
