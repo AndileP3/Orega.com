@@ -211,23 +211,6 @@
   width: 100%;
   text-align: center;
 }
-
-.dropdownMenu {
-  position: absolute;
-  top: 110%;
-  left: 0;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  z-index: 1000;
-  width: 1000px;
-  max-width: 90vw;
-}
-
 .dropdownColumn h4 {
   margin-bottom: 0.5rem;
   font-size: 1rem;
@@ -279,4 +262,156 @@
     margin-top: 1rem;
     width: 100%;
   }
+}
+.dropdownWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownTrigger {
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: #D6D8DE;
+  color: #07374E;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.dropdownColumn h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #07374E;
+}
+
+.dropdownColumn ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdownItem {
+  display: block;
+  padding: 0.3rem 0;
+  background: none;
+  border: none;
+  text-align: left;
+  color: #0E9296;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dropdownItem:hover {
+  color: #07374E;
+  text-decoration: underline;
+}
+
+.dropdownServiceCard {
+  text-align: center;
+  padding: 1rem;
+  max-width: 200px;
+}
+
+.serviceImage {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.serviceLabel {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #07374E;
+}
+
+@media (max-width: 768px) {
+  .dropdownMenu {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .dropdownServiceCard {
+    max-width: 100%;
+  }
+
+  .serviceImage {
+    max-height: 180px;
+    object-fit: cover;
+  }
+}
+.dropdownWrapper {
+  position: relative;
+}
+
+.dropdownTriggerWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownTriggerWrapper:hover .dropdownMenu1 {
+  display: grid;
+}
+.dropdownTriggerWrapper:hover .dropdownMenu2 {
+  display: grid;
+}
+.dropdownTriggerWrapper:hover .dropdownMenu3 {
+  display: grid;
+}
+
+.dropdownMenu1 {
+  display: none;
+  position: absolute;
+  top: 100%;          /* Puts it directly below the button */
+  left: 10%;          /* Centers horizontally relative to the button */
+  transform: translateX(-10%); /* Adjusts for true centering */
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  z-index: 1000;
+  max-width: min(80vw, 100vw - 2rem); /* Ensures it never touches screen edges */
+  margin-top: 10px;   /* Optional: Adds space between button and dropdown */
+}
+
+.dropdownMenu2 {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 10%;          /* Centers horizontally relative to the button */
+  transform: translateX(-50%); /* Adjusts for true centering */
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  z-index: 1000;
+  min-width: 400px;
+  max-width: min(80vw, 100vw - 2rem); /* Ensures it never touches screen edges */
+  margin-top: 10px;   /* Optional: Adds space between button and dropdown */
+}
+
+.dropdownMenu3 {
+  display: none;
+  position: absolute;
+  top: 100%;          /* Puts it directly below the button */         /* Centers horizontally relative to the button */
+  transform: translateX(-57%); /* Adjusts for true centering */
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  z-index: 1000;
+  width: 80vw; /* Ensures it never touches screen edges */
+  margin-top: 10px;   /* Optional: Adds space between button and dropdown */
 }
