@@ -1,9 +1,12 @@
 .latestSection {
   padding: 2rem;
+  padding-left: 0;
+  padding-right: 0;
   background-color: #fff;
 }
 
 .heading {
+  text-align: center;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -14,7 +17,8 @@
 }
 .carousel {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
+  
   overflow-x: auto;
   scroll-behavior: smooth;
   padding-bottom: 1rem;
@@ -30,6 +34,7 @@
 
 
 .card {
+  height: auto;
   min-width: 33%;
   background: #f9f9f9;
   border-radius: 8px;
@@ -39,7 +44,7 @@
 
 .image {
   width: 100%;
-  height: 200px;
+  height: auto;
   display: block;
 }
 
@@ -48,19 +53,23 @@
 }
 
 .title {
+  color: #07374E;
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 3rem;
 }
 
 .date {
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0E9296;
   margin-bottom: 0.5rem;
 }
 
 .readLink {
-  color: #0073e6;
-  text-decoration: underline;
+  margin-top: 26px;
+  padding-top:40px;
+  color: #07374E;
+  text-decoration: none;
   font-weight: bold;
 }
 
@@ -97,5 +106,10 @@
 }
 
 .active {
-  background: #0073e6;
+  background: #454545ff;
+}
+.arrowBtn{
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }

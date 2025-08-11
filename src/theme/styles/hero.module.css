@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
 /* Hero Container */
 .hero {
   position: relative;
   min-height: 90vh;
-  max-height: 100vh;
+  max-height: auto;
   background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.85)),
               url("https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaLimeStreet_Reception&BreakoutSpace2-2.jpg?width=1200&height=580&name=OregaLimeStreet_Reception&BreakoutSpace2-2.jpg"); /* Replace with actual image URL from JSX */
   background-size: cover;
@@ -28,9 +35,10 @@
 .content {
   background-color: hsla(0, 0%, 100%, .7);
   padding: 32px;
+  margin-top: 10%;
   border-radius: 8px;
   text-align: center;
-  max-width: 1000px;
+  max-width: 80vw;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -59,12 +67,32 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0px;
+  margin-top: 30px;
+  background-color: transparent;
+  padding: 1rem 2rem;
+  gap: 1rem;
+}
+.supportContainer2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 110px;
+  margin-bottom: 50px;
   background-color: transparent;
   padding: 1rem 2rem;
   gap: 1rem;
 }
 
+.supportItem1 {
+  font-family: sans-serif;
+  flex: 1 1 30%;
+  min-width: 250px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1rem;
+  color: white;
+}
 .supportItem {
   font-family: sans-serif;
   flex: 1 1 30%;
@@ -89,9 +117,6 @@
     min-height: 80vh;
   }
   
-  .content {
-    padding: 2.5rem;
-  }
   
   .title {
     font-size: 2.5rem;
@@ -283,9 +308,11 @@
 
 .dropdownColumn h4 {
   margin-bottom: 0.5rem;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #07374E;
+  font-size: 16px;
+  font-weight: 350;
+  text-align: left;
+  border-bottom: 1px solid #4a4a4a;
+  color: #0E9296;
 }
 
 .dropdownColumn ul {
@@ -295,13 +322,14 @@
 }
 
 .dropdownItem {
+  font: 400 13px 'Montserrat', sans-serif;
   display: block;
   padding: 0.3rem 0;
   background: none;
   border: none;
   text-align: left;
-  color: #0E9296;
-  font-weight: 500;
+  color: #07374E;
+  font-weight: 490;
   cursor: pointer;
   width: 100%;
 }
@@ -312,21 +340,32 @@
 }
 
 .dropdownServiceCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   text-align: center;
   padding: 1rem;
-  max-width: 200px;
+  max-width: 290px;
 }
+.dropdownServiceCard:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
 
+}
 .serviceImage {
-  width: 100%;
+  width: 50%;
+  height: auto;
   border-radius: 10px;
   margin-bottom: 0.5rem;
 }
 
 .serviceLabel {
   font-size: 1rem;
-  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  margin-top: 3.5rem;
   color: #07374E;
+  margin-left: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -368,50 +407,59 @@
 .dropdownMenu1 {
   display: none;
   position: absolute;
-  top: 100%;          /* Puts it directly below the button */
-  left: 10%;          /* Centers horizontally relative to the button */
-  transform: translateX(-10%); /* Adjusts for true centering */
+  top: 100%;
+  transform: translateX(-13%);
   background: white;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 2rem;
-  padding: 2rem;
+  padding: 1rem;
   z-index: 1000;
-  max-width: min(80vw, 100vw - 2rem); /* Ensures it never touches screen edges */
-  margin-top: 10px;   /* Optional: Adds space between button and dropdown */
+  width: 90vw;
+  margin-top: 2px;
 }
-
 .dropdownMenu2 {
   display: none;
   position: absolute;
   top: 100%;
-  left: 10%;          /* Centers horizontally relative to the button */
-  transform: translateX(-50%); /* Adjusts for true centering */
+  transform: translateX(-37%);
   background: white;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 2rem;
-  padding: 2rem;
+  padding: 1rem;
   z-index: 1000;
-  min-width: 400px;
-  max-width: min(80vw, 100vw - 2rem); /* Ensures it never touches screen edges */
-  margin-top: 10px;   /* Optional: Adds space between button and dropdown */
+  width: 90vw;
+  margin-top: 2px;
+ 
 }
 
 .dropdownMenu3 {
   display: none;
   position: absolute;
-  top: 100%;          /* Puts it directly below the button */         /* Centers horizontally relative to the button */
-  transform: translateX(-57%); /* Adjusts for true centering */
+  top: 100%;
+  transform: translateX(-57%);
   background: white;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
+  padding: 0px;
   z-index: 1000;
-  width: 80vw; /* Ensures it never touches screen edges */
-  margin-top: 10px;   /* Optional: Adds space between button and dropdown */
+  width: 90vw;
+  margin-top: 2px;
+  gap: 0rem;
+}
+
+.selectedValue {
+  font-size: 14px;
+  font-weight: 500;
+  color: #07374E;
+  margin-top: 4px;
+  text-align: center;
+}
+.selectedValue {
+  font-size: 14px;
+  font-weight: 500;
+  color: #07374E;
+  margin-top: 6px;
+  text-align: center;
 }
