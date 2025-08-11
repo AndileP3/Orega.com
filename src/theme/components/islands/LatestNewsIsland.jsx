@@ -92,7 +92,6 @@ export default function LatestNewsIsland({ fieldValues }) {
               <div className={styles.cardContent}>
                 <p className={styles.date}>{article.date}</p>
                 <h3 className={styles.title}>{article.title}</h3>
-                
                 <a href={article.link} className={styles.readLink}>Read article</a>
               </div>
             </div>
