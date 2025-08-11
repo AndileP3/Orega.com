@@ -90,8 +90,9 @@ export default function LatestNewsIsland({ fieldValues }) {
             <div className={styles.card} key={index}>
               <img src={article.img} alt={article.title} className={styles.image} loading="lazy" />
               <div className={styles.cardContent}>
-                <h3 className={styles.title}>{article.title}</h3>
                 <p className={styles.date}>{article.date}</p>
+                <h3 className={styles.title}>{article.title}</h3>
+                
                 <a href={article.link} className={styles.readLink}>Read article</a>
               </div>
             </div>
