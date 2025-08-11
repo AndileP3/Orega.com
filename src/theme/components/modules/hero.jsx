@@ -26,7 +26,7 @@ export function Component({ fieldValues }) {
         fieldValues={fieldValues}
       />
 
-      <div className={styles.supportContainer}>
+      <div className={styles.supportContainer2}>
         <div className={styles.supportItem}>
           <strong>Need help? Call us today on</strong>
         </div>
@@ -38,7 +38,7 @@ export function Component({ fieldValues }) {
           />
           <span>0800 840 5509</span>
         </div>
-        <div className={styles.supportItem}>
+        <div className={styles.supportItem1}>
           Our customer support team are on hand to answer any questions.
         </div>
       </div>
