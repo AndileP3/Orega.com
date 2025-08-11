@@ -1,6 +1,5 @@
 // src/theme/components/islands/LatestNewsIsland.js
 import React, { useRef, useState, useEffect } from 'react';
-import { ModuleFields, TextField } from '@hubspot/cms-components/fields';
 import styles from '../../styles/latestNews.module.css';
 
 export default function LatestNewsIsland({ fieldValues }) {
@@ -109,25 +108,3 @@ export default function LatestNewsIsland({ fieldValues }) {
     </section>
   );
 }
-
-export const fields = (
-  <ModuleFields>
-    {[1, 2, 3, 4].map(i => (
-      <TextField
-        key={i}
-        name={`article${i}_title`}
-        label={`Article ${i} Title`}
-        default={[
-          "The Best Offices in London",
-          "The Best Virtual Office Addresses in London",
-          "Why Are Face-to-Face Meetings Better Than Virtual Meetings?",
-          "The Best Office"
-        ][i - 1]}
-      />
-    ))}
-  </ModuleFields>
-);
-
-export const meta = {
-  label: 'Latest News (Interactive)',
-};
