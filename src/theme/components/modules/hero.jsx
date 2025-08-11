@@ -1,6 +1,6 @@
 import { ModuleFields, TextField, ImageField } from '@hubspot/cms-components/fields';
 import { Island } from '@hubspot/cms-components';
-import HeroContentIsland from '../islands/HeroContent?island'; // 👈 Import island here
+import HeroContentIsland from '../islands/HeroContent?island'; // 
 import styles from '../../styles/hero.module.css';
 
 export function Component({ fieldValues }) {
@@ -8,7 +8,7 @@ export function Component({ fieldValues }) {
     backgroundImage,
   } = fieldValues;
 
-  const backgroundImageUrl = backgroundImage?.url || 'https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaLimeStreet_Reception&BreakoutSpace2-2.jpg?width=1200&height=580&name=OregaLimeStreet_Reception&BreakoutSpace2-2.jpg';
+  const backgroundImageUrl = backgroundImage?.src || 'https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaLimeStreet_Reception&BreakoutSpace2-2.jpg?width=1200&height=580&name=OregaLimeStreet_Reception&BreakoutSpace2-2.jpg';
 
   return (
     <section
