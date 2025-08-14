@@ -46,6 +46,21 @@ h4{
   background-size: cover;
   background-position: center;
 }
+.title{
+  text-align: center;
+  font-size: 2.1875rem;
+  margin: 0;
+  padding-top: 2rem;
+}
+.description{
+  text-align: center;
+  align-items: center;
+  margin-right:auto;
+  margin-left:auto;
+  font-size: 1rem;
+  width: 50%;
+  padding-bottom: 2rem;
+}
 
 .link {
   font-weight: bold;
@@ -90,4 +105,19 @@ h4{
 .tile:hover .hoverDescription {
   opacity: 1;
   pointer-events: auto;
+}
+@media (max-width: 1000px) {
+  .featureGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 800px) {
+  .featureGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .featureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
