@@ -94,7 +94,11 @@ export function Component({ fieldValues }) {
   ];
 
   return (
+     <>
+       <h4 className={styles.title}>Orega Benefits</h4>
+       <p className={styles.description}>We've packed our premium workspace with extra features to help you boost productivity and morale.</p>
     <section className={styles.featureGrid}>
+     
       {tiles.map((tile, index) => (
         <div key={index} className={styles.tile}>
           {tile.type === 'icon' ? (
@@ -117,6 +121,7 @@ export function Component({ fieldValues }) {
         </div>
       ))}
     </section>
+    </>
   );
 }
 
