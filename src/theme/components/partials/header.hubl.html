@@ -25,53 +25,90 @@
           "label": "Locations",
           "url": "/locations",
           "dropdownItems": [
-            { "label": "London", "url": "#" },
-            { "label": "Manchester", "url": "#" },
-            { "label": "North", "url": "#" },
-            { "label": "Midlands", "url": "#" },
-            { "label": "South", "url": "#" },
-            { "label": "Scotland", "url": "#" }
+            { "label": "London", "url": "#", "subItems": [
+              { "label": "Strand", "url": "#" },
+              { "label": "Mark Lane", "url": "#" },
+              { "label": "Holborn Gate", "url": "#" },
+              { "label": "Lime Street", "url": "#" },
+              { "label": "High Holborn", "url": "#" },
+              { "label": "Gracechurch Street", "url": "#" },
+              { "label": "Old Bailey", "url": "#" }
+            ] },
+            { "label": "Manchester", "url": "#", "subItems": [
+              { "label": "The Toolal Buildings", "url": "#" },
+              { "label": "Balloon Street", "url": "#" },
+              { "label": "Manchester Piccadilly", "url": "#" },
+              { "label": "Arkwright House", "url": "#" }
+            ] },
+            { "label": "North", "url": "#", "subItems": [
+              { "label": "Liverpool", "url": "#" },
+              { "label": "Broad Gate - Leeds", "url": "#" },
+              { "label": "St. Paul's House - Leeds", "url": "#" },
+              { "label": "Newcastle", "url": "#" }
+            ] },
+            { "label": "Midlands", "url": "#", "subItems": [
+              { "label": "The Colmore Building Birmingham", "url": "#" },
+              { "label": "Ingenuity House Birmingham", "url": "#" }
+            ] },
+            { "label": "South", "url": "#", "subItems": [
+              { "label": "Marlow", "url": "#" },
+              { "label": "Bristol", "url": "#" },
+              { "label": "Catwick", "url": "#" },
+              { "label": "Uxbridge", "url": "#" },
+              { "label": "Stockley Park", "url": "#" }
+            ] },
+            { "label": "Scotland", "url": "#", "subItems": [
+              { "label": "Aberdeen", "url": "#" },
+              { "label": "Glasgow St Vincent Street", "url": "#" }
+            ] }
           ]
         },
         {
           "label": "Services",
           "url": "/services",
           "dropdownItems": [
-            { "label": "Serviced Offices", "url": "#" },
+            { "label": "Serviced Offices", "url": "#", "subItems": [
+              { "label": "London", "url": "#" },
+              { "label": "Custom Fit-Outs", "url": "#" }
+            ] },
             { "label": "Virtual Offices", "url": "#" },
             { "label": "Meeting Rooms", "url": "#" },
             { "label": "Coworking", "url": "#" },
             { "label": "Temporary Offices", "url": "#" }
           ]
         },
-        {
-          "label": "About",
-          "url": "/about"
-        },
-        {
-          "label": "Landlords",
-          "url": "/landlords"
-        },
-        {
-          "label": "News & Views",
-          "url": "/news"
-        },
-        {
-          "label": "Contact Us",
-          "url": "/contact",
-          "isContact": true
-        }
+        { "label": "About", "url": "/about" },
+        { "label": "Landlords", "url": "/landlords" },
+        { "label": "News & Views", "url": "/news" },
+        { "label": "Contact Us", "url": "/contact", "isContact": true }
       ] %}
 
       {% for item in navigation %}
-        <div class="header__nav-item">
-          <a href="{{ item.url }}" class="{{ 'header__contact-link' if item.isContact else 'header__nav-link' }}">
+        <div class="header__nav-item {% if item.dropdownItems %}has-dropdown{% endif %}">
+          <a href="{{ item.url }}" 
+             class="{{ 'header__contact-link' if item.isContact else 'header__nav-link' }}">
             {{ item.label }}
+            {% if item.dropdownItems %}
+              <span class="caret">&#9662;</span>
+            {% endif %}
           </a>
           {% if item.dropdownItems %}
             <div class="dropdown">
               {% for drop in item.dropdownItems %}
-                <a href="{{ drop.url }}">{{ drop.label }}</a>
+                <div class="dropdown-item {% if drop.subItems %}has-submenu{% endif %}">
+                  <a href="{{ drop.url }}">{{ drop.label }}
+                    {% if drop.subItems %}
+                      <span class="caret caret-right">&#9656;</span>
+                    {% endif %}
+                  </a>
+                  {% if drop.subItems %}
+                    <div class="submenu">
+                      {% for sub in drop.subItems %}
+                        <a href="{{ sub.url }}">{{ sub.label }}</a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
               {% endfor %}
             </div>
           {% endif %}
@@ -81,13 +118,4 @@
   </div>
 </header>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("menu-toggle");
-    const nav = document.getElementById("mobile-nav");
-
-    toggle.addEventListener("click", function () {
-      nav.classList.toggle("show");
-    });
-  });
-</script>
+<script> document.addEventListener("DOMContentLoaded", function () { const toggle = document.getElementById("menu-toggle"); const nav = document.getElementById("mobile-nav"); toggle.addEventListener("click", function () { nav.classList.toggle("show"); }); }); </script>
