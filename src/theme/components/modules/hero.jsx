@@ -6,9 +6,14 @@ import styles from '../../styles/hero.module.css';
 export function Component({ fieldValues }) {
   const {
     backgroundImage,
+    supportHeading,
+    supportPhoneNumber,
+    supportDescription,
   } = fieldValues;
 
-  const backgroundImageUrl = backgroundImage?.src || 'https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaLimeStreet_Reception&BreakoutSpace2-2.jpg?width=1200&height=580&name=OregaLimeStreet_Reception&BreakoutSpace2-2.jpg';
+  const backgroundImageUrl =
+    backgroundImage?.src ||
+    'https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaLimeStreet_Reception&BreakoutSpace2-2.jpg?width=1200&height=580&name=OregaLimeStreet_Reception&BreakoutSpace2-2.jpg';
 
   return (
     <section
@@ -28,7 +33,7 @@ export function Component({ fieldValues }) {
 
       <div className={styles.supportContainer2}>
         <div className={styles.supportItem}>
-          <strong>Need help? Call us today on</strong>
+          <strong>{supportHeading}</strong>
         </div>
         <div className={styles.supportItem}>
           <img
@@ -36,11 +41,9 @@ export function Component({ fieldValues }) {
             alt="Phone Icon"
             className={styles.phoneIcon}
           />
-          <span>0800 840 5509</span>
+          <span>{supportPhoneNumber}</span>
         </div>
-        <div className={styles.supportItem1}>
-          Our customer support team are on hand to answer any questions.
-        </div>
+        <div className={styles.supportItem1}>{supportDescription}</div>
       </div>
     </section>
   );
@@ -58,15 +61,24 @@ export const fields = (
       label="Subtitle"
       default="Stylish, flexible office space without the headaches of old-fashioned leases."
     />
+    <TextField name="buttonText" label="CTA Button Text" default="Find" />
+    <ImageField name="backgroundImage" label="Background Image" default="" />
+
+    {/* Support content fields */}
     <TextField
-      name="buttonText"
-      label="CTA Button Text"
-      default="Find"
+      name="supportHeading"
+      label="Support Heading"
+      default="Need help? Call us today on"
     />
-    <ImageField
-      name="backgroundImage"
-      label="Background Image"
-      default=""
+    <TextField
+      name="supportPhoneNumber"
+      label="Support Phone Number"
+      default="0800 840 5509"
+    />
+    <TextField
+      name="supportDescription"
+      label="Support Description"
+      default="Our customer support team are on hand to answer any questions."
     />
   </ModuleFields>
 );
