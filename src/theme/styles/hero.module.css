@@ -8,8 +8,7 @@ body {
 /* Hero Container */
 .hero {
   position: relative;
-  min-height: 90vh;
-  max-height: auto;
+  height: 100%;
   background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.85)),
               url("https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaLimeStreet_Reception&BreakoutSpace2-2.jpg?width=1200&height=580&name=OregaLimeStreet_Reception&BreakoutSpace2-2.jpg"); /* Replace with actual image URL from JSX */
   background-size: cover;
@@ -114,10 +113,9 @@ body {
 /* Responsive Styles */
 @media (max-width: 992px) {
   .hero {
-    min-height: 80vh;
+    min-height: 60vh;
   }
-  
-  
+
   .title {
     font-size: 2.5rem;
   }
@@ -126,13 +124,26 @@ body {
     font-size: 1.3rem;
   }
 }
-
+@media (max-width: 950px){
+   .ctaButton {
+    align-self: center;
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.8rem 2rem;
+  }
+}
 @media (max-width: 768px) {
   .hero {
     min-height: 70vh;
     padding: 2rem;
   }
-  
+    .searchForm {
+    flex-direction: column;
+  }
+
+  .searchField {
+    width: 100%;
+  }
   .content {
     padding: 2rem;
     max-width: 100%;
@@ -145,12 +156,10 @@ body {
   .subtitle {
     font-size: 1.1rem;
   }
-  
-  .ctaButton {
-    padding: 0.8rem 2rem;
-  }
 }
+@media (max-width: 720px){
 
+}
 @media (max-width: 480px) {
   .hero {
     min-height: 60vh;
@@ -169,35 +178,6 @@ body {
     font-size: 1rem;
   }
 }
-.searchForm {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  max-width: 1000px;
-}
-
-.searchField {
-  display: flex;
-  flex-direction: column;
-  min-width: 200px;
-  flex: 1;
-  position: relative;
-}
-
-.searchInput {
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: center;
-  background-color: #D6D8DE;
-  color: #07374E;
-  width: 100%;
-}
 
 .ctaButton {
   background-color: #0E9296;
@@ -209,7 +189,7 @@ body {
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s;
-  align-self: flex-end;
+  align-self: start;
   margin-top: 0px;
   height: fit-content;
 }
@@ -217,24 +197,6 @@ body {
 .ctaButton:hover {
   color: #07374E;
   background-color: #ffd63c;
-}
-
-/* Custom Dropdown Styles */
-.dropdownWrapper {
-  position: relative;
-}
-
-.dropdownTrigger {
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
-  border: 1px solid #ddd;
-  font-weight: 700;
-  font-size: 1rem;
-  background-color: #D6D8DE;
-  color: #07374E;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
 }
 .dropdownColumn h4 {
   margin-bottom: 0.5rem;
@@ -265,29 +227,6 @@ body {
   color: #07374E;
   text-decoration: underline;
 }
-
-@media (max-width: 768px) {
-  .searchForm {
-    flex-direction: column;
-  }
-
-  .searchField {
-    width: 100%;
-  }
-
-  .dropdownMenu {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  .ctaButton {
-    align-self: center;
-    margin-top: 1rem;
-    width: 100%;
-  }
-}
 .dropdownWrapper {
   position: relative;
   display: inline-block;
@@ -303,6 +242,7 @@ body {
   color: #07374E;
   cursor: pointer;
   width: 100%;
+  align-self: start;
   text-align: center;
 }
 
@@ -385,14 +325,6 @@ body {
     object-fit: cover;
   }
 }
-.dropdownWrapper {
-  position: relative;
-}
-
-.dropdownTriggerWrapper {
-  position: relative;
-  display: inline-block;
-}
 
 .dropdownTriggerWrapper:hover .dropdownMenu1 {
   display: grid;
@@ -403,7 +335,6 @@ body {
 .dropdownTriggerWrapper:hover .dropdownMenu3 {
   display: grid;
 }
-
 .dropdownMenu1 {
   display: none;
   position: absolute;
@@ -414,9 +345,10 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 2rem;
   padding: 1rem;
-  z-index: 1000;
+  z-index: 50;
   width: 90vw;
-  margin-top: 2px;
+  max-width: 1200px;
+  margin-top: 5px;
 }
 .dropdownMenu2 {
   display: none;
@@ -428,9 +360,10 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 2rem;
   padding: 1rem;
-  z-index: 1000;
+  z-index: 50;
   width: 90vw;
-  margin-top: 2px;
+  max-width: 1200px;
+  margin-top: 5px;
  
 }
 
@@ -443,9 +376,10 @@ body {
   border-radius: 2px;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   padding: 0px;
-  z-index: 1000;
+  z-index: 50;
   width: 90vw;
-  margin-top: 2px;
+  max-width: 1200px;
+  margin-top: 5px;
   gap: 0rem;
 }
 
@@ -462,4 +396,109 @@ body {
   color: #07374E;
   margin-top: 6px;
   text-align: center;
+}
+@media (max-width: 950px) {
+  /* Stack buttons in a column */
+  .supportContainer {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem;
+  }
+
+  .dropdownWrapper {
+    width: 100%;
+  }
+
+  .dropdownTrigger {
+    width: 100%;
+  }
+
+  /* Dropdown menus with fixed height + scroll */
+  .dropdownMenu1,
+  .dropdownMenu2,
+  .dropdownMenu3 {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    display: flex !important;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.5rem;
+
+    max-height: 250px;       /* fixed height */
+    overflow-y: auto;        /* scroll if content is long */
+    scrollbar-width: thin;   /* Firefox */
+    scrollbar-color: #0E9296 #f0f0f0; /* scrollbar thumb & track */
+  }
+
+  /* Webkit scrollbar (Chrome, Safari, Edge) */
+  .dropdownMenu1::-webkit-scrollbar,
+  .dropdownMenu2::-webkit-scrollbar,
+  .dropdownMenu3::-webkit-scrollbar {
+    width: 6px;
+  }
+  .dropdownMenu1::-webkit-scrollbar-thumb,
+  .dropdownMenu2::-webkit-scrollbar-thumb,
+  .dropdownMenu3::-webkit-scrollbar-thumb {
+    background: #0E9296;
+    border-radius: 3px;
+  }
+  .dropdownMenu1::-webkit-scrollbar-track,
+  .dropdownMenu2::-webkit-scrollbar-track,
+  .dropdownMenu3::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+
+  .dropdownColumn {
+    width: 100%;
+  }
+
+  .dropdownServiceCard {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .serviceImage {
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+  }
+
+  .serviceLabel {
+    margin-top: 0.5rem;
+    margin-left: 0;
+    text-align: center;
+  }
+}
+.dropdownTrigger {
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: #D6D8DE;
+  color: #07374E;
+  cursor: pointer;
+  width: 100%;
+ 
+  text-align: center;
+  position: relative; 
+   /* needed for arrow placement */
+}
+
+/* Arrow inside the button */
+.dropdownTrigger::after {
+  content: "▶";  /* right arrow */
+  font-size: 0.8rem;
+  margin-left: 8px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when menu is active (hovered or open) */
+.dropdownWrapper:hover .dropdownTrigger::after,
+.dropdownWrapper.active .dropdownTrigger::after {
+  transform: rotate(90deg); /* down arrow */
 }
