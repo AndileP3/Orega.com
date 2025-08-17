@@ -3,15 +3,25 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 0px;
   padding: 0px;
-   font-family: sans-serif;
+  font-family: sans-serif;
+}
+
+/* Mobile-friendly: single column under 950px */
+@media (max-width: 950px) {
+  .typesSection {
+    grid-template-columns: 1fr;
+  }
 }
 
 .officeCard {
   position: relative;
-  background-color: #ffffffff;
+  background-color: #fff;
   overflow: hidden;
-  transition: transform 0.3s ease, background-image 0.3s ease, filter 0.3s ease;
+  transition: all 0.5s ease; /* smooth hover transition */
   min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Show bg image only on hover */
@@ -22,15 +32,15 @@
   filter: brightness(1.05);
 }
 
-
 .cardContent {
   background: rgba(255, 255, 255, 0.95);
   position: absolute;
-  padding:20px;
+  padding: 20px;
   bottom: 0px;
   left: 0px;
   right: 0px;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: all 0.5s ease; /* smooth fade */
+  text-align: center;
 }
 
 /* Dark gradient on hover for readability */
@@ -44,16 +54,16 @@
   color: #fff;
 }
 
-/* Hide the icon on hover */
 .officeImg {
-  width: 100px;
-  margin-bottom: 10px;
-  transition: opacity 0.2s ease;
+  width: 150px; /* bigger icon */
+  max-width: 40%;
+  margin: 0 auto 15px auto; /* center horizontally */
+  display: block;
+  transition: opacity 0.4s ease; /* smooth fade only */
 }
 
 .officeCard:hover .officeImg {
   opacity: 0;
-  visibility: hidden;
 }
 
 .button {
@@ -63,12 +73,12 @@
   padding: 10px 20px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .officeCard:hover .button {
-  background: transparent;
-  color: #fff;
+  background: white;
+  color: #003d4c;
   border-color: #fff;
 }
 
