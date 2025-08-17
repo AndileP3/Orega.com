@@ -55,3 +55,19 @@
   color: #fff;
   background-color: #0E9296;
 }
+.inlineContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.stars {
+  display: inline-flex;
+  margin-left: 0.5rem; /* space between "Excellent" and stars */
+}
+
+.stars img {
+  width: 20px;
+  height: 20px;
+}
