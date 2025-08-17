@@ -1,6 +1,7 @@
 .featuredSection {
   padding: 1px;
   padding-top: 50px;
+  padding-bottom: 35px;
   background-color: #ffffffff;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
@@ -158,13 +159,14 @@
 .dot {
   width: 10px;
   height: 10px;
+  border: 1px solid #606060ff;
   border-radius: 50%;
-  background-color: #ccc;
+  background-color: #ffffffff;
   transition: background-color 0.3s ease;
 }
 
 .dot.active {
-  background-color: #00707c;
+  background-color: #868686ff;
 }
 
 @media (max-width: 768px) {
