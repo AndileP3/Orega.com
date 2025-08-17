@@ -60,7 +60,7 @@ export function Component({ fieldValues }) {
 export const fields = (
 <ModuleFields>
   {/* Section 1 - Image */}
-  <TextField name="section1_title" label="Section 1 Title" default="It’s your office space, not ours." />
+  <TextField name="section1_title" label="Section 1 Title" default="It is your office space, not ours." />
   <TextField name="section1_description" label="Section 1 Description" default="You won’t find our logo above the door in our flexible offices. Our bespoke design service will boost your brand and inspire your team." />
   <TextField name="section1_button" label="Section 1 Button" default="Find out more" />
   <TextField name="section1_media" label="Section 1 Image Filename" default="mediatext-img1.webp" />
