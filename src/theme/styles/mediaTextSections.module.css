@@ -6,6 +6,7 @@
   flex-direction: column;
   gap: 5rem;
 }
+
 .row {
   display: flex;
   align-items: center;
@@ -26,7 +27,7 @@
   align-items: center;
 }
 
-/* Add the SVG as a decorative element behind the media */
+/* Decorative SVG pattern */
 .mediaColumn::before {
   content: '';
   position: absolute;
@@ -46,10 +47,10 @@
   position: relative;
   z-index: 1;
   max-width: 100%;
+  height: auto;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
-
 
 .textColumn {
   flex: 1 1 45%;
@@ -82,4 +83,60 @@
 .button:hover {
   background: white;
   color: #00324e;
+}
+
+/* 📱 Responsive: stack into one column */
+@media (max-width: 950px) {
+  .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .reverse {
+    flex-direction: column; /* remove row-reverse on mobile */
+  }
+
+  .mediaColumn, 
+  .textColumn {
+    flex: 1 1 100%;
+  }
+
+  .mediaColumn::before {
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 100px;
+    opacity: 0.7;
+  }
+
+  .textColumn h3 {
+    font-size: 1.5rem;
+  }
+
+  .textColumn p {
+    font-size: 1rem;
+  }
+}
+.mediaColumn {
+  flex: 1 1 45%;
+  position: relative; /* ensure pseudo-element is anchored here */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1; /* make sure media and pattern are in the same stacking context */
+}
+
+.mediaColumn::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 250px;
+  height: 150px;
+  background-image: url('https://www.orega.com/hubfs/orega-pattern.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  z-index: -1; /* stay behind the media */
 }
