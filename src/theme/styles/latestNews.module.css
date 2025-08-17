@@ -101,12 +101,13 @@
 .dot {
   width: 10px;
   height: 10px;
-  background: #ccc;
+  border: 1px solid #606060ff;
+  background: #ffffffff;
   border-radius: 50%;
 }
 
 .active {
-  background: #454545ff;
+  background: #646464ff;
 }
 .arrowBtn{
   border-radius: 50%;
