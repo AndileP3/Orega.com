@@ -17,23 +17,23 @@ export default function ReviewsIsland() {
   const reviews = [
     {
       name: "Michelle Powell",
-      text: "Can totally recommend this superb organisation. Fantastic customer service...",
+      text: "Can totally recommend this superb organisation. Fantastic customer service, great locations and well equipped meeting rooms, but most of all, really helpful, friendly and accommodating staff - I would especially like to thank Lucia and Anca for their first class service",
     },
     {
       name: "Marie Bower",
-      text: "It was great to get together for our Q3 team meeting last Friday at Orega...",
+      text: "It was great to get together for our Q3 team meeting last Friday at Orega. The front of house team could not do enough to make our experience perfect and even let us stand behind the desk for a team photo. The facilities and location were fantastic Thank you!!",
     },
     {
       name: "Lizzie Russell",
-      text: "We use Orega for our office services client meetings and the service received...",
+      text: "We use Orega for our office services client meetings and the service received is fantastic.  We love to visit the office weekly and are always welcome and our clients are greeted and treated professionally.  The staff are always very helpful in providing secretarial services as and when needed.  They are very accommodating also as we grow in size and any tailored requests that i have.",
     },
     {
-      name: "Michael D.",
-      text: "I love the atmosphere here. The reception staff always greet me warmly...",
+      name: "Michael Buckworth",
+      text: "I love these offices. Perfectly located in the City and really modern and airy inside. The reception team are helpful and friendly and the meeting rooms are great with some really easy to use tech.",
     },
     {
-      name: "Sandra C.",
-      text: "Exceptional workspace, flexible terms, and amazing amenities. Highly recommended!",
+      name: "Tom Nash",
+      text: "MarketsFlow and I are highly impressed by all aspects of the service, nicely decor office facilities, great meeting room, excellent attention to detail overall. To top it all, it is a pleasure to work with Romy and Natalie on all aspects of Office Management. They have played a critical part in growing MarketsFlow and I am grateful!",
     },
   ];
 
