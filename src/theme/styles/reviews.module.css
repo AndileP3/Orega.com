@@ -120,11 +120,12 @@
 .dot {
   width: 10px;
   height: 10px;
-  background: #ccc;
+  border: 1px solid #606060ff;
+  background: #ffffffff;
   border-radius: 50%;
   transition: background 0.3s;
 }
 
 .dot.active {
-  background: #002a3a;
+  background: #676767ff;
 }
