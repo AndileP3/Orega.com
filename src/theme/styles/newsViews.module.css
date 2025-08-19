@@ -1,0 +1,102 @@
+.newsSection {
+  width: 100%;
+  max-width: 70%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: #07374E;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: left;
+  margin: 0px;
+}
+
+.carouselWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.card:nth-child(even) {
+  flex-direction: row-reverse; /* Alternate image left/right */
+}
+
+.image {
+  width: 50%;
+  align-self: center;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cardContent {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.date {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+   margin: 5px;
+}
+
+.excerpt {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  margin: 5px;
+}
+
+.readLink {
+  display: inline-block;
+  width: 25%;
+  font-weight: 600;
+  color: #07374E;
+  text-decoration: none;
+  border: 1px solid #07374E;
+  padding: 8px 16px;
+  border-radius: 30px;
+  transition: all 0.2s ease-in-out;
+}
+
+.readLink:hover {
+  background-color: #07374E;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column !important;
+  }
+
+  .image, .cardContent {
+    width: 100%;
+  }
+
+  .carouselWrapper {
+    gap: 20px;
+  }
+}
