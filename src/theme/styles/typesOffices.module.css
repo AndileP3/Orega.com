@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 0px;
   padding: 0px;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Mobile-friendly: single column under 950px */
@@ -68,7 +68,7 @@
 
 .button {
   background: #fff;
-  border: 2px solid #003d4c;
+  border: 1px solid #07374E;
   border-radius: 50px;
   padding: 10px 20px;
   cursor: pointer;
