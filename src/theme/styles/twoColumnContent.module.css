@@ -5,6 +5,7 @@
   font-family: 'Montserrat', sans-serif;
   width: 70%;
   margin: 0 auto;
+  color: #3A3A3A;
 }
 
 .mainHeading {
@@ -12,7 +13,7 @@
   margin: 0 auto;
   text-align: left;
   margin-bottom: 2rem;
-  color: #222;
+  color: #07374e;
   max-width: 1100px;
 }
 
