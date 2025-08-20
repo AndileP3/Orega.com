@@ -1,0 +1,22 @@
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20vh; /* Full screen */
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 2rem;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contentWrapper {
+  max-width: 800px;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
