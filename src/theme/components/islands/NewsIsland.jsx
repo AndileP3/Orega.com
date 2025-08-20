@@ -63,7 +63,6 @@ export default function NewsIsland({ fieldValues }) {
     <section className={styles.newsSection}>
       <h2 className={styles.heading}>{heading}</h2>
       <div className={styles.carouselWrapper}>
-        <button onClick={scrollLeft} className={`${styles.arrowBtn} ${styles.left}`}>&larr;</button>
         <div className={styles.carousel} ref={carouselRef}>
           {hubdbRows.map((row, index) => {
             const { values } = row;
@@ -77,7 +76,13 @@ export default function NewsIsland({ fieldValues }) {
               <div className={styles.card} key={index}>
                 <img src={img} alt={title} className={styles.image} />
                 <div className={styles.cardContent}>
-                  <p className={styles.date}>{date}</p>
+                      <p className={styles.date}>
+                        {new Date(date).toLocaleDateString("en-GB", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </p>
                   <h3 className={styles.title}>{title}</h3>
                   <p className={styles.excerpt} dangerouslySetInnerHTML={{ __html: excerpt }} />
                   <a href={link} className={styles.readLink}>Read article</a>
@@ -86,7 +91,7 @@ export default function NewsIsland({ fieldValues }) {
             );
           })}
         </div>
-        <button onClick={scrollRight} className={`${styles.arrowBtn} ${styles.right}`}>&rarr;</button>
+        
       </div>
       <div className={styles.dots}>
         {hubdbRows.map((_, index) => (
