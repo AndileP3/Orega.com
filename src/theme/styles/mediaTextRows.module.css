@@ -13,6 +13,7 @@
   display: flex;
   justify-content: center;
   padding: 2rem 0;
+  min-height: 300px;
 }
 
 .innerRow {
@@ -26,6 +27,7 @@
 
 /* Reverse layout for alternating rows */
 .reverse .innerRow {
+  color: #fff;
   flex-direction: row-reverse;
 }
 
@@ -43,13 +45,11 @@
 .left h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: #0a3340;
 }
 
 .left p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
-  color: #1f3b4d;
 }
 
 .left button {
@@ -62,7 +62,7 @@
   font-weight: 600;
 }
 .left button:hover {
-  background-color: #07374e;
+  background-color: #0d4d6bff;
   color: #fff;
   transition: background-color 0.3s ease;
 }
