@@ -9,7 +9,11 @@
   {% include "../components/partials/header.hubl.html" %}
 
   <main>
+
+     {% module "centered_text_background_section" path="../components/modules/CenteredTextBackground.jsx", label="Centered Text Background Section" %}
+
      {% module "news_section" path="../components/modules/newsViews.jsx", label="News Section" %}
   </main>
-
+   
+    {% include "../components/partials/footer.hubl.html" %}
 {% endblock body %}
