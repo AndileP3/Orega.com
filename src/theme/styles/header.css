@@ -208,3 +208,159 @@
     display: block;
   }
 }
+/* ================= MODAL STYLES ================= */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem; /* padding so modal doesn’t touch edges */
+}
+
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 900px;
+  max-height: 80vh;          /* limit height */
+  overflow-y: auto;          /* scroll if content too tall */
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make scrollbar visible inside modal only */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.modal-body {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.form-section {
+  flex: 1;
+  padding: 2rem;
+}
+
+.image-section {
+  flex: 1;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: 25%;
+}
+
+.image-section blockquote {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.image-section footer {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.image-section img {
+  margin-top: 1rem;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+input, select {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
+  background: #0E9296;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #07374E;
+}
+
+.close {
+  position: absolute;
+  top: 1rem; 
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Mobile modal responsive */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    height: auto;
+    max-height: 80vh;   /* allow a bit more height on small screens */
+  }
+
+  .modal-body {
+    flex-direction: column;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr; /* stack fields */
+  }
+
+  .form-section,
+  .image-section {
+    min-width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* Contact dropdown adjustments */
+.contact-dropdown {
+  display: none;
+}
+.contact-dropdown.open {
+  display: block;
+}
+.contact-us-item:hover > .dropdown {
+  display: none;
+}
+.contact-toggle.active {
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 25px;
+  border: 1px solid var(--primary-color);
+}
