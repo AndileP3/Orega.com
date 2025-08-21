@@ -86,28 +86,35 @@
       ] %}
 
       {% for item in navigation %}
-    <div class="header__nav-item has-dropdown contact-us-item">
-        <a href="javascript:void(0);" 
-          class="header__contact-link contact-toggle">
-          Contact Us
-          <span class="caret">&#9662;</span>
-        </a>
-        <div class="dropdown contact-dropdown">
-          <div class="dropdown-item">
-            <a href="#" class="contact-option" data-form="contact">Contact us</a>
-          </div>
-          <div class="dropdown-item">
-            <a href="#" class="contact-option" data-form="quote">Get a quote</a>
-          </div>
-          <div class="dropdown-item">
-            <a href="#" class="contact-option" data-form="tour">Book a tour</a>
-          </div>
-          <div class="dropdown-item">
-            <a href="#" class="contact-option" data-form="callback">Request a callback</a>
-          </div>
+    <div class="header__nav-item {% if item.dropdownItems %}has-dropdown{% endif %}">
+  <a href="{{ item.url }}" 
+     class="{{ 'header__contact-link contact-toggle' if item.isContact else 'header__nav-link' }}">
+    {{ item.label }}
+    {% if item.dropdownItems %}
+      <span class="caret">&#9662;</span>
+    {% endif %}
+  </a>
+  {% if item.dropdownItems %}
+    <div class="dropdown {% if item.isContact %}contact-dropdown{% endif %}">
+      {% for drop in item.dropdownItems %}
+        <div class="dropdown-item {% if drop.subItems %}has-submenu{% endif %}">
+          <a href="{{ drop.url }}" 
+             {% if item.isContact %}class="contact-option" data-form="{{ drop.formType }}"{% endif %}>
+            {{ drop.label }}
+            {% if drop.subItems %}
+              <span class="caret caret-right">&#9656;</span>
+            {% endif %}
+          </a>
+          {% if drop.subItems %}
+            <div class="submenu">
+              {% for sub in drop.subItems %}
+                <a href="{{ sub.url }}">{{ sub.label }}</a>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
-</div>
-
+      {% endfor %}
+    </div>
   {% endif %}
 </div>
 
@@ -158,7 +165,7 @@
           “EXCEPTIONAL CUSTOMER SERVICE AND TRUSTED STAFF”
           <footer>LAUREL BARNES</footer>
         </blockquote>
-        <img src="http://www.orega.com/hs-fs/hubfs/get-a-quote.png" alt="Testimonial">
+        <img src="{{ get_asset_url('../../assets/testimonial.png') }}" alt="Testimonial">
       </div>
     </div>
   </div>
@@ -172,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
     nav.classList.toggle("show"); 
   }); 
 
-  // Contact Us dropdown toggle
+  // Dropdown toggle for Contact Us
   const contactToggle = document.querySelector(".contact-toggle");
   const contactDropdown = document.querySelector(".contact-dropdown");
 
@@ -180,7 +187,6 @@ document.addEventListener("DOMContentLoaded", function () {
     contactToggle.addEventListener("click", function (e) {
       e.preventDefault();
       contactDropdown.classList.toggle("open");
-      contactToggle.classList.toggle("active");
     });
   }
 
@@ -190,6 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".contact-option").forEach(link => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
+      const type = this.getAttribute("data-form");
       document.getElementById("form-title").innerText = this.innerText;
       modal.style.display = "flex";
     });
