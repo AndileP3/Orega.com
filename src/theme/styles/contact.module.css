@@ -6,12 +6,10 @@
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
-
 .textBlock {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 .heading {
   font-size: 2rem;
   margin-bottom: 0.5rem;
