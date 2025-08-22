@@ -3,7 +3,7 @@
 :root {
   --primary-color: #0E9296;
   --text-color: #07374E;
-  --font-family: 'Open Sans', sans-serif;
+  --font-family: 'Montserrat', sans-serif;
 }
 
 .header {
@@ -210,6 +210,7 @@
 }
 /* ================= MODAL STYLES ================= */
 .modal {
+  font-family: var(--font-family);
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -252,7 +253,9 @@
 
 .form-section {
   flex: 1;
-  padding: 2rem;
+ padding-left: 2rem;
+ padding-bottom: 1rem;
+
 }
 
 .image-section {
@@ -263,15 +266,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem;
-  max-width: 25%;
+  max-width: 34%;
 }
 
-.image-section blockquote {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
 
 .image-section footer {
   font-size: 0.9rem;
@@ -279,9 +276,7 @@
 }
 
 .image-section img {
-  margin-top: 1rem;
   max-width: 100%;
-  border-radius: 8px;
 }
 
 .form-grid {
@@ -294,7 +289,7 @@ input, select {
   padding: 0.8rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 100%;
+  width: 80%;
 }
 
 label {
@@ -318,10 +313,11 @@ label {
 }
 
 .close {
+  color: white;
   position: absolute;
   top: 1rem; 
   right: 1rem;
-  font-size: 1.5rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -363,4 +359,12 @@ label {
   background-color: var(--primary-color);
   border-radius: 25px;
   border: 1px solid var(--primary-color);
+}
+input[type="checkbox" i] {
+  max-width: 16px;     /* smaller box */
+  height: 16px;
+  margin-right: 8px;
+  accent-color: var(--primary-color); /* modern browsers: matches your theme */
+  cursor: pointer;
+  flex-shrink: 0;
 }
