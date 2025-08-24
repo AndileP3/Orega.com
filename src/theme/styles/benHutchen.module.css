@@ -103,11 +103,6 @@ text-align: center;
   font-size: 1rem;
   border-radius: 8px;
 }
-@media (max-width: 840px) {
-  .contentWrapper {
-    grid-template-columns: 1fr;
-  }
-}
 
 
 /*section2*/
@@ -154,4 +149,13 @@ text-align: center;
 .button:hover {
   background-color: #07374e;
   color: #fff;
+}
+
+@media (max-width: 840px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+  }
+  .rightColumn2 {
+    width: 100vw;
+  }
 }
