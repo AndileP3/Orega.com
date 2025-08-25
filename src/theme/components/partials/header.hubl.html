@@ -77,8 +77,8 @@
         { "label": "About", "url": "/about" },
         { "label": "Landlords", "url": "/landlords" },
         { "label": "News & Views", "url": "/news" },
-        { "label": "Contact Us",  "isContact": true, "dropdownItems": [
-          { "label": "Contact us", "url": "#", "formType": "contact" },
+        { "label": "Contact Us", "url": "#", "isContact": true, "dropdownItems": [
+          { "label": "Contact us", "url": "/contact" },
           { "label": "Get a quote", "url": "#", "formType": "quote" },
           { "label": "Book a tour", "url": "#", "formType": "tour" },
           { "label": "Request a callback", "url": "#", "formType": "callback" }
@@ -86,38 +86,37 @@
       ] %}
 
       {% for item in navigation %}
-    <div class="header__nav-item {% if item.dropdownItems %}has-dropdown{% endif %}">
-  <a href="{{ item.url }}" 
-     class="{{ 'header__contact-link contact-toggle' if item.isContact else 'header__nav-link' }}">
-    {{ item.label }}
-    {% if item.dropdownItems %}
-      <span class="caret">&#9662;</span>
-    {% endif %}
-  </a>
-  {% if item.dropdownItems %}
-    <div class="dropdown {% if item.isContact %}contact-dropdown{% endif %}">
-      {% for drop in item.dropdownItems %}
-        <div class="dropdown-item {% if drop.subItems %}has-submenu{% endif %}">
-          <a href="{{ drop.url }}" 
-             {% if item.isContact %}class="contact-option" data-form="{{ drop.formType }}"{% endif %}>
-            {{ drop.label }}
-            {% if drop.subItems %}
-              <span class="caret caret-right">&#9656;</span>
+        <div class="header__nav-item {% if item.dropdownItems %}has-dropdown{% endif %}">
+          <a href="{{ item.url }}" 
+            class="{{ 'header__contact-link contact-toggle' if item.isContact else 'header__nav-link' }}">
+            {{ item.label }}
+            {% if item.dropdownItems %}
+              <span class="caret">&#9662;</span>
             {% endif %}
           </a>
-          {% if drop.subItems %}
-            <div class="submenu">
-              {% for sub in drop.subItems %}
-                <a href="{{ sub.url }}">{{ sub.label }}</a>
+          {% if item.dropdownItems %}
+            <div class="dropdown {% if item.isContact %}contact-dropdown{% endif %}">
+              {% for drop in item.dropdownItems %}
+                <div class="dropdown-item {% if drop.subItems %}has-submenu{% endif %}">
+                  <a href="{{ drop.url }}"
+                     {% if drop.formType %}class="contact-option" data-form="{{ drop.formType }}"{% endif %}>
+                    {{ drop.label }}
+                    {% if drop.subItems %}
+                      <span class="caret caret-right">&#9656;</span>
+                    {% endif %}
+                  </a>
+                  {% if drop.subItems %}
+                    <div class="submenu">
+                      {% for sub in drop.subItems %}
+                        <a href="{{ sub.url }}">{{ sub.label }}</a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
               {% endfor %}
             </div>
           {% endif %}
         </div>
-      {% endfor %}
-    </div>
-  {% endif %}
-</div>
-
       {% endfor %}
     </nav>
   </div>
@@ -181,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (contactToggle && contactDropdown) {
     contactToggle.addEventListener("click", function (e) {
-      e.preventDefault();
+      e.preventDefault(); // don't redirect
       contactDropdown.classList.toggle("open");
     });
   }
@@ -191,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeBtn = modal.querySelector(".close");
   document.querySelectorAll(".contact-option").forEach(link => {
     link.addEventListener("click", function (e) {
-      e.preventDefault();
+      e.preventDefault(); // stop redirect
       const type = this.getAttribute("data-form");
       document.getElementById("form-title").innerText = this.innerText;
       modal.style.display = "flex";
