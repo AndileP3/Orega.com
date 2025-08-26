@@ -502,3 +502,149 @@ body {
 .dropdownWrapper.active .dropdownTrigger::after {
   transform: rotate(90deg); /* down arrow */
 }
+
+
+
+/* Popup Overlay */
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+/* Title + Subtitle */
+.popupTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+.popupSubtitle {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* Details */
+.popupDetails p {
+  font-size: 0.95rem;
+  margin: 0.4rem 0;
+  color: #333;
+}
+
+/* Buttons */
+.popupFooter {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.exploreBtn {
+  background: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+.exploreBtn:hover {
+  background: #004dcc;
+}
+
+/* Close Button */
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #666;
+  cursor: pointer;
+}
+.closeBtn:hover {
+  color: #000;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Popup Image */
+/* .popupImage {
+  width: 50%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 1rem 0;
+} */
+
+/* Popup Description */
+.popupDescription {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+/* Popup Card */
+.popupCard {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 70%;
+  max-width: 90%;
+  max-height: 80vh; /* limit height to 60% of viewport */
+  overflow-y: auto; /* add scroll if content overflows */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+/* Scrollbar styling (optional, to look professional) */
+.popupCard::-webkit-scrollbar {
+  width: 8px;
+}
+.popupCard::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+.popupCard::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+/* Office Image */
+.popupImage {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Heading inside popup */
+.officeHeading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+/* Office description */
+.officeDescription {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #444;
+  margin-bottom: 1rem;
+}
