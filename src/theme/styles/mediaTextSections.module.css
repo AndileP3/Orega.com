@@ -87,6 +87,10 @@
 
 /* 📱 Responsive: stack into one column */
 @media (max-width: 950px) {
+  .mediaTextSection {
+    padding: 1rem 1rem;
+  }
+
   .row {
     flex-direction: column;
     text-align: center;
