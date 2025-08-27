@@ -94,6 +94,7 @@ export default function HeroContent({ fieldValues }) {
       if (match) {
         setOfficeData({
           name: match.values.name,
+          city: match.values.city || "Unknown",
           description: match.values.description || "No description available.",
           image: match.values.image?.url || "https://via.placeholder.com/600x400?text=No+Image",
         });
@@ -231,10 +232,15 @@ export default function HeroContent({ fieldValues }) {
             {loading ? (
               <p>Loading office details...</p>
             ) : officeData ? (
-              <>
-                <h2 className={styles.popupTitle}>{officeData.name}</h2>
-                <img src={officeData.image} alt={officeData.name} className={styles.popupImage} />
-                <p className={styles.popupDescription}>{officeData.description}</p>
+              <> 
+                 <div className={styles.popupHeader}>
+                 <img src={officeData.image} alt={officeData.name} className={styles.popupImage} />
+
+                 <div className={styles.popupContent}>
+                 <h2 className={styles.popupTitle}>Luxury Offices in 80 {officeData.name} {officeData.city} </h2>
+                 <p className={styles.popupDescription}>{officeData.description}</p>
+                 </div>
+                </div>
 
                 <div className={styles.popupDetails}>
                   {selectedPeople && <p><strong>People:</strong> {selectedPeople}</p>}
@@ -246,7 +252,8 @@ export default function HeroContent({ fieldValues }) {
             )}
 
             <div className={styles.popupFooter}>
-              <button className={styles.exploreBtn}>Explore More</button>
+              <button className={styles.exploreBtn}>Get a Quote</button>
+              <button className={styles.BookBtn}>Book a Viewing</button>
             </div>
           </div>
         </div>
