@@ -1,5 +1,5 @@
 .featuredSection {
-  padding: 1px;
+  padding: 0px;
   padding-top: 50px;
   padding-bottom: 35px;
   background-color: #ffffffff;
@@ -175,7 +175,7 @@
   }
 
   .carouselWrapper {
-    padding: 0 30px;
+    padding: 0 0px;
   }
 
   .arrowBtn {
