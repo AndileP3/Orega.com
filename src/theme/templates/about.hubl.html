@@ -6,9 +6,9 @@
 {% extends "./layouts/base.hubl.html" %}
 
 {% block body %}
-  {% include "../components/partials/header.hubl.html" %}
 
   <main>
+   {% module "Header Module" path="../components/modules/Header.module.jsx", label="Header Module" %}
 
     {% module "TwoColumnContentModule" path="../components/modules/TwoColumnContentModule.jsx", label="Two Column Content Module" %}
 

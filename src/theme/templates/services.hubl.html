@@ -6,10 +6,10 @@
 {% extends "./layouts/base.hubl.html" %}
 
 {% block body %}
-  {% include "../components/partials/header.hubl.html" %}
+ 
 
   <main>
-    
+     {% module "Header Module" path="../components/modules/Header.module.jsx", label="Header Module" %}
     {% module "OfficeServices" path="../components/modules/OfficeServicesModule.jsx", label="Office Services Section" %}
 
      {% module "TextRows" path="../components/modules/TextRows.jsx", label=" Text Rows" %}

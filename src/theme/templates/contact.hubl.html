@@ -6,10 +6,9 @@
 {% extends "./layouts/base.hubl.html" %}
 
 {% block body %}
-  {% include "../components/partials/header.hubl.html" %}
 
   <main>
-
+     {% module "Header Module" path="../components/modules/Header.module.jsx", label="Header Module" %}
      {% module "text_background_section" path="../components/modules/textBackground.jsx", label="Text Background Section" %}
 
     {% module "contact_us_section" path="../components/modules/contactUs.jsx", label="Contact Us Section" %}
