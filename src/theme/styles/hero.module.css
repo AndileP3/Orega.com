@@ -18,7 +18,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0;
+  margin-top: 100px;
   padding: 0px;
 }
 
@@ -545,17 +545,30 @@ body {
   text-align: center;
 }
 .exploreBtn {
-  background: #0066ff;
-  color: white;
+  background: #FFD63C;
+  color: #3a3a3a;
   border: none;
-  border-radius: 6px;
+  border-radius: 25px;
   padding: 0.7rem 1.4rem;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-weight: bold;
   transition: 0.2s ease;
+  margin: 0.5rem;
 }
-.exploreBtn:hover {
-  background: #004dcc;
+.BookBtn {
+  background: transparent;
+  color: #0e9296;
+  border: 1px solid #0e9296;
+  border-radius: 25px;
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s ease;
+  margin: 0.5rem;
+}
+.BookBtn:hover {
+  background: #0e9296;
+  color: white;
 }
 
 /* Close Button */
@@ -647,4 +660,17 @@ body {
   line-height: 1.5;
   color: #444;
   margin-bottom: 1rem;
+}
+.popupHeader{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .popupHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
