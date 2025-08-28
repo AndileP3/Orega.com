@@ -86,22 +86,27 @@
 .buttons {
   display: flex;
   gap: 0.5rem;
+  text-decoration: none;
   margin-top: auto;   /* pushes buttons to bottom */
 }
 
 .tourBtn {
   background: #ffdb56;
+  text-decoration: none;
   color: #3a3a3a;
   border: none;
   padding: 0.5rem 1rem;   /* added missing padding */
   border-radius: 28px;
   cursor: pointer;
+    text-align: center;
   font-weight: 600;
   flex: 1;
 }
 
 .infoBtn {
   background: none;
+  text-decoration: none;
+  text-align: center;
   border: 1px solid #0e9296;
   color: #00707c;
   padding: 0.5rem 1rem;
