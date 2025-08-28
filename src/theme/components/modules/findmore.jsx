@@ -1,10 +1,16 @@
+// src/theme/components/modules/findmore.jsx
 import { ModuleFields, TextField, ImageField, VideoField } from '@hubspot/cms-components/fields';
+import { Island } from '@hubspot/cms-components';
+import ButtonIsland from '../islands/ButtonIsland?island';
 import styles from '../../styles/findmore.module.css';
 
 // Full URLs for your uploaded images
-const STAR_URL = 'https://47574277.fs1.hubspotusercontent-na1.net/hubfs/47574277/Orega.com%20-%20media%20files/star.png';
-const RATING_URL = 'https://47574277.fs1.hubspotusercontent-na1.net/hubfs/47574277/Orega.com%20-%20media%20files/rating.png';
-const DEFAULT_VIDEO_URL = 'https://47574277.fs1.hubspotusercontent-na1.net/hubfs/47574277/Orega.com%20-%20media%20files/findmore.mp4';
+const STAR_URL =
+  'https://47574277.fs1.hubspotusercontent-na1.net/hubfs/47574277/Orega.com%20-%20media%20files/star.png';
+const RATING_URL =
+  'https://47574277.fs1.hubspotusercontent-na1.net/hubfs/47574277/Orega.com%20-%20media%20files/rating.png';
+const DEFAULT_VIDEO_URL =
+  'https://47574277.fs1.hubspotusercontent-na1.net/hubfs/47574277/Orega.com%20-%20media%20files/findmore.mp4';
 
 export function Component({ fieldValues }) {
   const {
@@ -64,7 +70,16 @@ export function Component({ fieldValues }) {
         <div className={styles.content}>
           <h2 className={styles.heading}>{heading}</h2>
           <p className={styles.message}>{message}</p>
-          <button className={styles.button}>{buttonText}</button>
+
+          {/* The button is now an Island */}
+          <Island
+            module={ButtonIsland}
+            fieldValues={{
+              buttonText,
+              buttonLink: "/orega.com-services", // or any dynamic link from HubSpot field
+            }}
+          />
+
         </div>
       </section>
     </>
@@ -73,7 +88,13 @@ export function Component({ fieldValues }) {
 
 export const fields = (
   <ModuleFields>
-    <TextField name="heading" label="Heading" default="Don't lose your company culture." />
+    <TextField
+      name="heading"
+      label="Heading"
+      default="Don't lose your company culture."
+    />
+    <TextField name="buttonLink" label="Button Link" />
+
     <TextField
       name="message"
       label="Message"
