@@ -2,11 +2,16 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { ModuleFields, TextField } from '@hubspot/cms-components/fields';
 import styles from '../../styles/featuredLocations.module.css';
+import headerStyles from '../../styles/header.module.css'; // Import header styles for popup
 
 export default function FeaturedLocationsIsland({ fieldValues }) {
   const carouselRef = useRef();
   const scrollAmount = 316;
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formTitle, setFormTitle] = useState('Book a Tour');
 
   const scrollLeft = () => {
     carouselRef.current?.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
@@ -18,45 +23,17 @@ export default function FeaturedLocationsIsland({ fieldValues }) {
 
   const offices = [
     {
-    title: fieldValues.office1_title || "Manchester",
-    location: fieldValues.office1_location || "Balloon Street",
-    description: "Modern workspace in Manchester city centre with transport links.",
-    travel: [
-      { station: "Manchester Victoria", time: "11 mins" },
-      { station: "Manchester Piccadilly", time: "15 mins" }
-    ],
-    img: "https://www.orega.com/hs-fs/hubfs/Balloon%20Street%20-%20Manchester/balloon-street-serviced-office-manchester.jpg?width=600&height=338&name=balloon-street-serviced-office-manchester.jpg"
-  },
-  {
-    title: fieldValues.office5_title || "Arkwright House",
-    location: fieldValues.office5_location || "Manchester",
-    description: "A prestigious building in the heart of Manchester overlooking landscaped communal gardens and the city centre, and centrally located.",
-    travel: [
-      { station: "Manchester Victoria", time: "11 mins" },
-      { station: "Manchester Piccadilly", time: "15 mins" }
-    ],
-    img: "https://www.orega.com/hs-fs/hubfs/arkwright-house-feature.png?width=600&height=338&name=arkwright-house-feature.png"
-  },
-
-    { title: fieldValues.office3_title || "Bristol",
-      location: fieldValues.office3_location || "Bristol City Centre",
-      description: "Contemporary office space in the heart of Bristol with excellent transport links.",
+      title: fieldValues.office1_title || "Manchester",
+      location: fieldValues.office1_location || "Balloon Street",
+      description: "Modern workspace in Manchester city centre with transport links.",
       travel: [
-        { station: "Bristol Temple Meads", time: "10 mins" },
-        { station: "Bristol Parkway", time: "20 mins" }
+        { station: "Manchester Victoria", time: "11 mins" },
+        { station: "Manchester Piccadilly", time: "15 mins" }
       ],
-      img: "https://www.orega.com/hs-fs/hubfs/Orega%20Bristol_Exterior_1000x665.jpg?width=600&height=338&name=Orega%20Bristol_Exterior_1000x665.jpg"
+      img: "https://www.orega.com/hs-fs/hubfs/Balloon%20Street%20-%20Manchester/balloon-street-serviced-office-manchester.jpg?width=600&height=338&name=balloon-street-serviced-office-manchester.jpg"
     },
-    { title: fieldValues.office4_title || "Gatwick",
-      location: fieldValues.office4_location || "Gatwick Office",
-      description: "Conveniently located office space near Gatwick Airport.",
-      travel: [
-        { station: "Gatwick Airport", time: "5 mins" },
-        { station: "Horley", time: "10 mins" }
-      ],
-      img: "https://www.orega.com/hs-fs/hubfs/gatwick-feature.png?width=600&height=338&name=gatwick-feature.png"
-    },
-    { title: fieldValues.office5_title || "Arkwright House",
+    {
+      title: fieldValues.office5_title || "Arkwright House",
       location: fieldValues.office5_location || "Manchester",
       description: "A prestigious building in the heart of Manchester overlooking landscaped communal gardens and the city centre, and centrally located.",
       travel: [
@@ -65,6 +42,26 @@ export default function FeaturedLocationsIsland({ fieldValues }) {
       ],
       img: "https://www.orega.com/hs-fs/hubfs/arkwright-house-feature.png?width=600&height=338&name=arkwright-house-feature.png"
     },
+    {
+      title: fieldValues.office3_title || "Bristol",
+      location: fieldValues.office3_location || "Bristol City Centre",
+      description: "Contemporary office space in the heart of Bristol with excellent transport links.",
+      travel: [
+        { station: "Bristol Temple Meads", time: "10 mins" },
+        { station: "Bristol Parkway", time: "20 mins" }
+      ],
+      img: "https://www.orega.com/hs-fs/hubfs/Orega%20Bristol_Exterior_1000x665.jpg?width=600&height=338&name=Orega%20Bristol_Exterior_1000x665.jpg"
+    },
+    {
+      title: fieldValues.office4_title || "Gatwick",
+      location: fieldValues.office4_location || "Gatwick Office",
+      description: "Conveniently located office space near Gatwick Airport.",
+      travel: [
+        { station: "Gatwick Airport", time: "5 mins" },
+        { station: "Horley", time: "10 mins" }
+      ],
+      img: "https://www.orega.com/hs-fs/hubfs/gatwick-feature.png?width=600&height=338&name=gatwick-feature.png"
+    }
   ];
 
   // Handle active dot
@@ -82,42 +79,70 @@ export default function FeaturedLocationsIsland({ fieldValues }) {
     return () => ref?.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Modal handlers
+  const openModal = () => {
+    setFormTitle("Book a Tour");
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (isModalOpen && e.target.id === 'contactModal') {
+        closeModal();
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener('click', handleOutsideClick);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen]);
+
   return (
     <section className={styles.featuredSection}>
       <h2 className={styles.heading}>Featured Locations</h2>
       <div className={styles.carouselWrapper}>
         <button onClick={scrollLeft} className={`${styles.arrowBtn} ${styles.left}`} aria-label="Scroll left" type="button">&larr;</button>
         <div className={styles.carousel} ref={carouselRef} tabIndex={0}>
-                {offices.map((office, index) => (
-          <div className={styles.card} key={index}>
-            <img src={office.img} alt={`${office.title} Office`} className={styles.image} loading="lazy" />
-            <div className={styles.cardContent}>
-              <h3>{office.title}</h3>
-              <p className={styles.location}>{office.location}</p>
-              {office.description && <p className={styles.description}>{office.description}</p>}
-              {office.travel?.length > 0 && (
-                <ul className={styles.travelList}>
-                  {office.travel.map((item, idx) => (
-                    <li key={idx} className={styles.travelItem}>
-                     <img
-                        src="https://www.orega.com/hubfs/tube-icon-orange.svg"
-                        alt="Tube icon"
-                        className={styles.trainIcon}
-                      />
-
-                      {item.station} <span className={styles.travelTime}>({item.time})</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-      <div className={styles.buttons}>
-        <button className={styles.tourBtn}>Book a tour</button>
-        <button className={styles.infoBtn}>Learn more</button>
-      </div>
-    </div>
-  </div>
-))}
-
+          {offices.map((office, index) => (
+            <div className={styles.card} key={index}>
+              <img src={office.img} alt={`${office.title} Office`} className={styles.image} loading="lazy" />
+              <div className={styles.cardContent}>
+                <h3>{office.title}</h3>
+                <p className={styles.location}>{office.location}</p>
+                {office.description && <p className={styles.description}>{office.description}</p>}
+                {office.travel?.length > 0 && (
+                  <ul className={styles.travelList}>
+                    {office.travel.map((item, idx) => (
+                      <li key={idx} className={styles.travelItem}>
+                        <img
+                          src="https://www.orega.com/hubfs/tube-icon-orange.svg"
+                          alt="Tube icon"
+                          className={styles.trainIcon}
+                        />
+                        {item.station} <span className={styles.travelTime}>({item.time})</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <div className={styles.buttons}>
+                  <button onClick={openModal} className={styles.tourBtn}>Book a tour</button>
+                  <a href="/orega.com-services" className={styles.infoBtn}>Learn more</a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
         <button onClick={scrollRight} className={`${styles.arrowBtn} ${styles.right}`} aria-label="Scroll right" type="button">&rarr;</button>
       </div>
@@ -131,6 +156,60 @@ export default function FeaturedLocationsIsland({ fieldValues }) {
           />
         ))}
       </div>
+
+      {/* Contact Form Modal (reusing header styles) */}
+      {isModalOpen && (
+        <div id="contactModal" className={headerStyles.modal}>
+          <div className={headerStyles.modalContent}>
+            <span className={headerStyles.close} onClick={closeModal}>&times;</span>
+            <div className={headerStyles.modalBody}>
+              <div className={headerStyles.formSection}>
+                <h2 id={headerStyles.formTitle}>{formTitle}</h2>
+                <form>
+                  <div className={headerStyles.formGrid}>
+                    <input type="text" placeholder="First name*" required />
+                    <input type="text" placeholder="Last name*" required />
+                    <input type="tel" placeholder="Phone number*" required />
+                    <input type="email" placeholder="Email*" required />
+                    <input type="text" placeholder="Company name*" required />
+                    <select required>
+                      <option value="">Location*</option>
+                      <option value="Aberdeen">Aberdeen - Capitol Building</option>
+                      <option value="London">London - Strand</option>
+                    </select>
+                    <select required>
+                      <option value="">Requirement*</option>
+                      <option value="Serviced Office">Serviced Office</option>
+                      <option value="Meeting Room">Meeting Room</option>
+                    </select>
+                    <input type="text" placeholder="Number of desks*" />
+                    <input type="date" placeholder="Date required*" />
+                  </div>
+            
+                  <label>
+                    <input type="checkbox" className="checkboxInput" required /> 
+                    I agree to receive communications as necessary to provide our products and services as requested from Orega.*
+                  </label>
+
+                  <label>
+                    <input type="checkbox" className="checkboxInput" /> 
+                    I agree to receive other communications from Orega.
+                  </label>
+
+                  <button type="submit" className={headerStyles.submitBtn}>SUBMIT</button>
+                </form>
+              </div>
+
+              <div className={headerStyles.imageSection}>
+                <img 
+                  src="https://www.orega.com/hs-fs/hubfs/get-a-quote.png?width=400&height=800&name=get-a-quote.png" 
+                  alt="Testimonial" 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
