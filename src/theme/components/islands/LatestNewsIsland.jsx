@@ -20,49 +20,49 @@ export default function LatestNewsIsland({ fieldValues }) {
       title: fieldValues.article1_title || "The Best Offices in London",
       date: "13 May 2025",
       img: "https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaMarlow_BreakoutSpace_WithPeople10-1.jpg?width=533&height=300&name=OregaMarlow_BreakoutSpace_WithPeople10-1.jpg",
-      link: "#"
+      link: "/news"
     },
     {
       title: fieldValues.article2_title || "The Best Virtual Office Addresses in London",
       date: "4 August 2025",
       img: "https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/Orega-Serviced%20Office-OldBailey-Meeting%20Room.jpg?width=533&height=300&name=Orega-Serviced%20Office-OldBailey-Meeting%20Room.jpg",
-      link: "#"
+      link: "/news"
     },
     {
       title: fieldValues.article3_title || "Why Are Face-to-Face Meetings Better Than Virtual Meetings?",
       date: "4 August 2025",
       img: "https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/Imported_Blog_Media/THE%20COLMORE%20BUILDING%200918_033-3-1-1.jpeg?width=533&height=300&name=THE%20COLMORE%20BUILDING%200918_033-3-1-1.jpeg",
-      link: "#"
+      link: "/news"
     },
     {
       title: fieldValues.article4_title || "The Best Office",
       date: "18 July 2025",
       img: "https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaMarlow_Atrium_WithPeople4.jpg?width=533&height=300&name=OregaMarlow_Atrium_WithPeople4.jpg",
-      link: "#"
+      link: "/news"
     },
      {
       title: fieldValues.article5_title || "The Best Office",
       date: "18 July 2025",
       img: "https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaMarlow_Atrium_WithPeople4.jpg?width=533&height=300&name=OregaMarlow_Atrium_WithPeople4.jpg",
-      link: "#"
+      link: "/news"
     },
      {
       title: fieldValues.article6_title || "The Best Office",
       date: "18 July 2025",
       img: "https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/Orega%20Newcastle%20St%20James%20Gate%20External.jpg?width=533&height=300&name=Orega%20Newcastle%20St%20James%20Gate%20External.jpg",
-      link: "#"
+      link: "/news"
     },
     {
       title: fieldValues.article5_title || "The Best Office",
       date: "18 July 2025",
       img: "https://www.orega.com/hs-fs/hubfs/OregaEightyStrand_Reception.jpg?width=533&height=300&name=OregaEightyStrand_Reception.jpg",
-      link: "#"
+      link: "/news"
     },
     {
       title: fieldValues.article7_title || "The Best Office",
       date: "18 July 2025",
       img: "https://www.orega.com/hs-fs/hubfs/Orega%20Arkwright%20House%20-%20exterior-2.jpg?width=533&height=300&name=Orega%20Arkwright%20House%20-%20exterior-2.jpg",
-      link: "#"
+      link: "/news"
     }
   ];
 
