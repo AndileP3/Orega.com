@@ -285,53 +285,74 @@ const handleServiceSelect = async (serviceType) => {
         </div>
       </header>
 
-      {/* Office Popup */}
-      {showPopup && (
-        <div className={styles.popupOverlay}>
-          <div className={styles.popupCard}>
-            <button className={styles.closeBtn} onClick={closePopup}>×</button>
+    {/* Office Popup */}
+{showPopup && (
+  <div className={styles.popupOverlay}>
+    <div className={styles.popupCard}>
+      <button className={styles.closeBtn} onClick={closePopup}>×</button>
 
-            {!selectedOffice ? (
-              <>
-                <h2 className={styles.popupTitle}>Select an Office</h2>
-                {loading ? (
-                  <p>Loading offices...</p>
-                ) : officeList.length > 0 ? (
-                  <div className={styles.officeGrid}>
-                    {officeList.map((office) => (
-                      <div key={office.id} className={styles.officeCard}>
-                        <img 
-                          src={office.values.image?.url || "https://via.placeholder.com/300x200"} 
-                          alt={office.values.name} 
-                        />
-                        <h3>{office.values.name}</h3>
-                        <button className={styles.viewDetailsBtn} onClick={() => handleOfficeClick(office)}>View Details</button>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p>No offices found.</p>
-                )}
-              </>
-            ) : (
-              <>
-                <h2 className={styles.popupTitle}>{selectedOffice.name}</h2>
-                <div className={styles.imageContainer}>
-                <img src={selectedOffice.image} alt={selectedOffice.name} className={styles.fullImage} />
-                <div className={styles.textContainer}>
-                <h3>{selectedOffice.city}</h3>
-                <p>{selectedOffice.description}</p>
+      {!selectedOffice ? (
+        <>
+          {/* Dynamic Heading based on city or service */}
+          <h2 className={styles.popupTitle}>
+            {officeList[0]?.values?.city
+              ? `Luxury Offices in ${officeList[0].values.city}` 
+              : officeList[0]?.values?.type 
+                ? `Offices with ${capitalizeFirstLetter(officeList[0].values.type)}`
+                : "Our Offices"}
+          </h2>
+          <p className={styles.popupSubtitle}>
+            {officeList[0]?.values?.city 
+              ? "Here are some of our offices you can choose from." 
+              : officeList[0]?.values?.type 
+                ? `Here are some of our offices where you can book ${officeList[0].values.type.toLowerCase()}.` 
+                : "Here are some of our offices you can choose from."}
+          </p>
+
+          {loading ? (
+            <p>Loading offices...</p>
+          ) : officeList.length > 0 ? (
+            <div className={styles.officeGrid}>
+              {officeList.map((office) => (
+                <div key={office.id} className={styles.officeCard}>
+                  <img 
+                    src={office.values.image?.url || "https://via.placeholder.com/300x200"} 
+                    alt={office.values.name} 
+                  />
+                  <h3 className={styles.officeHeading}>{office.values.name}</h3>
+                  <button 
+                    className={styles.viewDetailsBtn} 
+                    onClick={() => handleOfficeClick(office)}
+                  >
+                    View Details
+                  </button>
                 </div>
-                </div>
-                <div className={styles.popupFooter}>
-                  <button className={styles.exploreBtn}>Get a Quote</button>
-                  <button className={styles.BookBtn}>Book a Viewing</button>
-                </div>
-              </>
-            )}
+              ))}
+            </div>
+          ) : (
+            <p>No offices found.</p>
+          )}
+        </>
+      ) : (
+        <>
+          <h2 className={styles.popupTitle}>{selectedOffice.name}</h2>
+          <div className={styles.imageContainer}>
+            <img src={selectedOffice.image} alt={selectedOffice.name} className={styles.fullImage} />
+            <div className={styles.textContainer}>
+              <h3>{selectedOffice.city}</h3>
+              <p>{selectedOffice.description}</p>
+            </div>
           </div>
-        </div>
+          <div className={styles.popupFooter}>
+            <button className={styles.exploreBtn}>Get a Quote</button>
+            <button className={styles.BookBtn}>Book a Viewing</button>
+          </div>
+        </>
       )}
+    </div>
+  </div>
+)}
+
 
       {/* Contact Form Modal */}
       {isModalOpen && (
