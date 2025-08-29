@@ -63,7 +63,7 @@ export function Component({ fieldValues }) {
             {fieldValues.left_paragraph ||
               "Senior industry leader Andrew Hynard has joined Orega as a strategic advisor to our board. Formerly the Chief Executive of the Howard de Walden Estate - a £4.6 billion commercial and residential property portfolio in Marylebone - Andrew brings a wealth of experience and insight to our team."}
           </p>
-          <a href={fieldValues.button_url || '#'} className={styles.button}>
+          <a href={fieldValues.button_url || '/contact'} className={styles.button}>
             {fieldValues.button_text1 || 'Find out more'}
           </a>
         </div>
