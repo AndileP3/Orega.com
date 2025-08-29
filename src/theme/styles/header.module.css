@@ -525,3 +525,51 @@ input[type="checkbox" i] {
   cursor: pointer; font-weight: bold;
   margin: 0.5rem;
 }
+
+.popupSubtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.officeCard:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.officeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.popupCard {
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 80%;
+  width: 900px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.officeHeading {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.textContainer {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fullImage {
+  border-radius: 8px;
+  width: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
