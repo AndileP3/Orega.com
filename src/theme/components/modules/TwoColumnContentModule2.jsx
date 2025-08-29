@@ -36,7 +36,7 @@ export function Component({ fieldValues }) {
             {fieldValues.left_paragraph ||
               "We pioneered our Management Agreement with the vision that partnership leads to success for all. We promise never to cut corners or prioritise style over substance. Instead, we invest in our spaces so you can unleash your productivity, communication & creativity ."}
           </p>
-          <a href={fieldValues.button_url || '#'} className={styles.button}>
+          <a href={fieldValues.button_url || '/landlords'} className={styles.button}>
             {fieldValues.button_text || 'Find out more'}
           </a>
         </div>

@@ -19,7 +19,7 @@ export function Component({ fieldValues }) {
             {fieldValues.left_paragraph ||
               "We offer stylish, flexible workspace without the headaches of old-fashioned leases. Over the last 20 years, we've provided our clients with modern serviced office spaces, run by brilliant teams and powered by supercharged technology. Today, we operate 26 centres office spaces in central locations across the UK, helping over 10,000 customers boost their productivity every day."}
           </p>
-          <a href={fieldValues.button_url || '#'} className={styles.button}>
+          <a href={fieldValues.button_url || '/contact'} className={styles.button}>
             {fieldValues.button_text || 'Get in touch'}
           </a>
         </div>
