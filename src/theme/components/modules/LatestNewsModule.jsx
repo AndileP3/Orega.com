@@ -16,13 +16,7 @@ export const fields = (
         key={i}
         name={`article${i}_title`}
         label={`Article ${i} Title`}
-        default={[
-          "The Best Offices in London",
-          "The Best Virtual Office Addresses in London",
-          "Why Are Face-to-Face Meetings Better Than Virtual Meetings?",
-          "The Best Office",
-          
-        ][i - 1]}
+   
       />
     ))}
   </ModuleFields>
