@@ -35,31 +35,31 @@ export default function LatestNewsIsland({ fieldValues }) {
       link: "/news"
     },
     {
-      title: fieldValues.article4_title || "The Best Office",
+      title: fieldValues.article4_title || "The Best Offices in Birmingham  ",
       date: "18 July 2025",
       img: "https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaMarlow_Atrium_WithPeople4.jpg?width=533&height=300&name=OregaMarlow_Atrium_WithPeople4.jpg",
       link: "/news"
     },
      {
-      title: fieldValues.article5_title || "The Best Office",
+      title: fieldValues.article5_title || "The Latest Workplace Trends: What Your Business Needs to Know",
       date: "18 July 2025",
       img: "https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/OregaMarlow_Atrium_WithPeople4.jpg?width=533&height=300&name=OregaMarlow_Atrium_WithPeople4.jpg",
       link: "/news"
     },
      {
-      title: fieldValues.article6_title || "The Best Office",
+      title: fieldValues.article6_title || "Return-to-Office vs Hybrid vs Remote Work",
       date: "18 July 2025",
       img: "https://2947606.fs1.hubspotusercontent-na1.net/hub/2947606/hubfs/Orega%20Newcastle%20St%20James%20Gate%20External.jpg?width=533&height=300&name=Orega%20Newcastle%20St%20James%20Gate%20External.jpg",
       link: "/news"
     },
     {
-      title: fieldValues.article5_title || "The Best Office",
+      title: fieldValues.article5_title || "The Benefits of an Office in Newcastle",
       date: "18 July 2025",
       img: "https://www.orega.com/hs-fs/hubfs/OregaEightyStrand_Reception.jpg?width=533&height=300&name=OregaEightyStrand_Reception.jpg",
       link: "/news"
     },
     {
-      title: fieldValues.article7_title || "The Best Office",
+      title: fieldValues.article7_title || "Orega Hosts UK REIIF Flex Debate at Broad Gate in Leeds",
       date: "18 July 2025",
       img: "https://www.orega.com/hs-fs/hubfs/Orega%20Arkwright%20House%20-%20exterior-2.jpg?width=533&height=300&name=Orega%20Arkwright%20House%20-%20exterior-2.jpg",
       link: "/news"
