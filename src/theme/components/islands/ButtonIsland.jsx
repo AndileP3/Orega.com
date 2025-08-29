@@ -2,11 +2,18 @@
 import styles from '../../styles/findmore.module.css';
 
 export default function ButtonIsland({ fieldValues }) {
-  const { buttonText, buttonLink } = fieldValues;
+  const { buttonText, buttonLink, serviceType, mode = 'link' } = fieldValues || {};
 
   function handleClick() {
+    if (mode === 'modal' && serviceType) {
+      // Tell the modal island to open with this service type
+      window.dispatchEvent(
+        new CustomEvent('open-service-modal', { detail: { serviceType } })
+      );
+      return;
+    }
+
     if (buttonLink) {
-      // Redirect to the provided link
       window.location.href = buttonLink;
     }
   }
