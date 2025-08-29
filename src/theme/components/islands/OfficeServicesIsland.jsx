@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+// src/theme/components/islands/OfficeServicesIsland.jsx
+import React, { useState, useEffect } from "react";
 import { ModuleFields, TextField, ImageField } from "@hubspot/cms-components/fields";
 import styles from "../../styles/officeServices.module.css";
+import headerStyles from "../../styles/header.module.css"; // import popup styles
 
 // Default fallback URLs for images
 const DEFAULT_IMAGES = [
@@ -13,6 +15,10 @@ const DEFAULT_IMAGES = [
 
 export default function OfficeServicesIsland({ fieldValues }) {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formTitle, setFormTitle] = useState("Get a Quote");
 
   // Safely get image URLs from editor or fallback
   const images = [
@@ -31,6 +37,36 @@ export default function OfficeServicesIsland({ fieldValues }) {
     setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  // Modal handlers
+  const openModal = () => {
+    setFormTitle("Get a Quote");
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (isModalOpen && e.target.id === "contactModal") {
+        closeModal();
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener("click", handleOutsideClick);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+      document.body.style.overflow = "unset";
+    };
+  }, [isModalOpen]);
+
   return (
     <section className={styles.officeServicesSection}>
       <div className={styles.container}>
@@ -43,12 +79,9 @@ export default function OfficeServicesIsland({ fieldValues }) {
             {fieldValues.paragraph ||
               "We believe that great things happen when people come together in person: so we create stylish workspaces and deliver unbeatable office services to help you boost face-to-face time and unlock the full potential of your business."}
           </p>
-          <a
-            href={fieldValues.buttonLink || "#"}
-            className={styles.button}
-          >
+          <button onClick={openModal} className={styles.button}>
             {fieldValues.buttonText || "Get a quote"}
-          </a>
+          </button>
         </div>
 
         {/* Right column - carousel */}
@@ -93,6 +126,65 @@ export default function OfficeServicesIsland({ fieldValues }) {
           </div>
         </div>
       </div>
+
+      {/* Contact Form Modal */}
+      {isModalOpen && (
+        <div id="contactModal" className={headerStyles.modal}>
+          <div className={headerStyles.modalContent}>
+            <span className={headerStyles.close} onClick={closeModal}>
+              &times;
+            </span>
+            <div className={headerStyles.modalBody}>
+              <div className={headerStyles.formSection}>
+                <h2 id={headerStyles.formTitle}>{formTitle}</h2>
+                <form>
+                  <div className={headerStyles.formGrid}>
+                    <input type="text" placeholder="First name*" required />
+                    <input type="text" placeholder="Last name*" required />
+                    <input type="tel" placeholder="Phone number*" required />
+                    <input type="email" placeholder="Email*" required />
+                    <input type="text" placeholder="Company name*" required />
+                    <select required>
+                      <option value="">Location*</option>
+                      <option value="Aberdeen">Aberdeen - Capitol Building</option>
+                      <option value="London">London - Strand</option>
+                    </select>
+                    <select required>
+                      <option value="">Requirement*</option>
+                      <option value="Serviced Office">Serviced Office</option>
+                      <option value="Meeting Room">Meeting Room</option>
+                    </select>
+                    <input type="text" placeholder="Number of desks*" />
+                    <input type="date" placeholder="Date required*" />
+                  </div>
+
+                  <label>
+                    <input type="checkbox" className="checkboxInput" required /> 
+                    I agree to receive communications as necessary to provide our
+                    products and services as requested from Orega.*
+                  </label>
+
+                  <label>
+                    <input type="checkbox" className="checkboxInput" /> 
+                    I agree to receive other communications from Orega.
+                  </label>
+
+                  <button type="submit" className={headerStyles.submitBtn}>
+                    SUBMIT
+                  </button>
+                </form>
+              </div>
+
+              <div className={headerStyles.imageSection}>
+                <img
+                  src="https://www.orega.com/hs-fs/hubfs/get-a-quote.png?width=400&height=800&name=get-a-quote.png"
+                  alt="Testimonial"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -108,7 +200,7 @@ export const fields = (
     <TextField name="buttonText" label="Button Text" default="Get a quote" />
     <TextField name="buttonLink" label="Button Link" default="#" />
 
-    {/* Image fields without default */}
+    {/* Image fields */}
     <ImageField name="image1" label="Image 1" />
     <ImageField name="image2" label="Image 2" />
     <ImageField name="image3" label="Image 3" />
