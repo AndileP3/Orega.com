@@ -163,3 +163,146 @@
     border-radius: 10px;
   }
 }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 70%; max-width: 90%; max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  position: relative;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 28px;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  color: #50565c;
+  margin: 0 0 8px 0;
+}
+
+.smallText {
+  display: block;
+  font-size: 12px;
+  color: #7b8794;
+  margin-bottom: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.cardItem {
+  background: #fafafa;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  padding: 12px;
+  max-width: 200px;
+  text-align: center;
+}
+
+.thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.officeName {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.viewBtn {
+  appearance: none;
+  border: none;
+  border-radius: 25px;
+  padding: 0.7rem 1.4rem;
+  background: #0E9296;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.detailWrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.hero {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.detailText {
+  color: #2e3338;
+}
+
+.city {
+  margin: 0 0 6px 0;
+}
+
+.footerBtns {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.quoteBtn, .bookBtn {
+  flex: 1 1 220px;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 14px;
+  font-weight: 700;
+  max-width: 20%;
+  cursor: pointer;
+}
+
+.quoteBtn {
+  background: #FFD63C;
+  color: #fff;
+}
+
+.bookBtn {
+  border: 2px solid #0E9296;
+  background: transparent;
+  color: #0E9296;
+}
+
+/* Larger screens */
+@media (min-width: 800px) {
+  .detailWrap {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: start;
+  }
+}

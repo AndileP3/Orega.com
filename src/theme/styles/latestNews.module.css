@@ -36,7 +36,7 @@
 
 .card {
   height: auto;
-  min-width: 33%;
+  min-width: 25%;
   background: #f9f9f9;
   border-radius: 8px;
   overflow: hidden;
@@ -45,7 +45,8 @@
 
 .image {
   width: 100%;
-  height: auto;
+  height: 150px;
+  object-fit: cover;
   display: block;
 }
 
