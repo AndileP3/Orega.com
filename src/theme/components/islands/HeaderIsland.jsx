@@ -19,24 +19,50 @@ export default function Header({ fieldValues = {} }) {
   
   // Popup state
   const [showPopup, setShowPopup] = useState(false);
-  const [officeList, setOfficeList] = useState([]);  // offices in a city
-  const [selectedOffice, setSelectedOffice] = useState(null); // clicked office details
+  const [popupContext, setPopupContext] = useState(null); // "city" or "service"
+  const [selectedService, setSelectedService] = useState(null);
+  const [officeList, setOfficeList] = useState([]);
+  const [selectedOffice, setSelectedOffice] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [allOffices, setAllOffices] = useState([]); // Cache all offices
+  const [allOffices, setAllOffices] = useState([]);
+
+  // Service headings + subtitles
+  const serviceContent = {
+    serviced: {
+      title: "Serviced Offices",
+      subtitle: "Flexible, fully equipped serviced offices designed to help your business thrive."
+    },
+    virtual: {
+      title: "Virtual Offices",
+      subtitle: "Explore our premium virtual offices available across multiple locations."
+    },
+    meeting: {
+      title: "Meeting Rooms",
+      subtitle: "Book purpose-built meeting rooms with concierge support for a professional experience."
+    },
+    coworking: {
+      title: "Coworking",
+      subtitle: "Collaborative coworking spaces that inspire productivity and networking."
+    },
+    temporary: {
+      title: "Temporary Offices",
+      subtitle: "Short-term, ready-to-use offices tailored to meet your urgent business needs."
+    }
+  };
 
   const navigation = [
      {
-    "label": "Locations",
-    "url": "/home-2",
-    "dropdownItems": [
-      { "label": "London", "url": "#", "isCity": true },
-      { "label": "Manchester", "url": "#", "isCity": true },
-      { "label": "North", "url": "#", "isCity": true },
-      { "label": "Midlands", "url": "#", "isCity": true },
-      { "label": "South", "url": "#", "isCity": true },
-      { "label": "Scotland", "url": "#", "isCity": true }
-    ]
-  },
+      "label": "Locations",
+      "url": "/home-2",
+      "dropdownItems": [
+        { "label": "London", "url": "#", "isCity": true },
+        { "label": "Manchester", "url": "#", "isCity": true },
+        { "label": "North", "url": "#", "isCity": true },
+        { "label": "Midlands", "url": "#", "isCity": true },
+        { "label": "South", "url": "#", "isCity": true },
+        { "label": "Scotland", "url": "#", "isCity": true }
+      ]
+    },
     {
       "label": "Services",
       "url": "/orega.com-services",
@@ -64,7 +90,7 @@ export default function Header({ fieldValues = {} }) {
   ];
 
   const fetchOffices = async () => {
-    if (allOffices.length > 0) return allOffices; // Return cached data
+    if (allOffices.length > 0) return allOffices;
     
     setLoading(true);
     try {
@@ -83,7 +109,7 @@ export default function Header({ fieldValues = {} }) {
     }
   };
 
-  // Handle city click from main dropdown
+  // Handle city click
   const handleCityClick = async (city) => {
     const offices = await fetchOffices();
     const filtered = offices.filter(
@@ -91,47 +117,28 @@ export default function Header({ fieldValues = {} }) {
     );
     setOfficeList(filtered);
     setSelectedOffice(null);
+    setPopupContext("city");
+    setSelectedService(null);
     setShowPopup(true);
   };
 
-  // Handle office selection from submenu
-  const handleOfficeSelect = async (officeName) => {
+  // Handle service selection
+  const handleServiceSelect = async (serviceType) => {
     const offices = await fetchOffices();
-    const office = offices.find(
-      (row) => row.values?.name?.toLowerCase() === officeName.toLowerCase()
-    );
-    
-    if (office) {
-      setSelectedOffice({
-        name: office.values.name,
-        city: office.values.city,
-        description: office.values.description,
-        image: office.values.image?.url || "https://via.placeholder.com/600x400?text=No+Image"
-      });
-      setShowPopup(true);
-    }
+    const selectedServiceKey = (serviceType || "").toLowerCase().trim();
+
+    const filteredOffices = offices.filter(office => {
+      const officeType = (office.values.type || "").toLowerCase().trim();
+      return officeType === selectedServiceKey;
+    });
+
+    setOfficeList(filteredOffices);
+    setSelectedOffice(null);
+    setPopupContext("service");
+    setSelectedService(selectedServiceKey);
+    setShowPopup(true);
   };
 
-  // Handle service selection
-// Handle service selection
-const handleServiceSelect = async (serviceType) => {
-  const offices = await fetchOffices();
-
-  // Normalize the selected service
-  const selectedService = (serviceType || "").toLowerCase().trim();
-
-  const filteredOffices = offices.filter(office => {
-    // Normalize the HubDB type column
-    const officeType = (office.values.type || "").toLowerCase().trim();
-    return officeType === selectedService;
-  });
-
-  setOfficeList(filteredOffices);
-  setSelectedOffice(null);
-  setShowPopup(true);
-};
-
-  // Handle office click from grid
   const handleOfficeClick = (office) => {
     setSelectedOffice({
       name: office.values.name,
@@ -145,11 +152,11 @@ const handleServiceSelect = async (serviceType) => {
     setShowPopup(false);
     setOfficeList([]);
     setSelectedOffice(null);
+    setPopupContext(null);
+    setSelectedService(null);
   };
 
-  const toggleMobileNav = () => {
-    setIsMobileNavOpen(!isMobileNavOpen);
-  };
+  const toggleMobileNav = () => setIsMobileNavOpen(!isMobileNavOpen);
 
   const toggleContactDropdown = (e) => {
     e.preventDefault();
@@ -163,15 +170,11 @@ const handleServiceSelect = async (serviceType) => {
     setIsContactDropdownOpen(false);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      if (isModalOpen && e.target.id === 'contactModal') {
-        closeModal();
-      }
+      if (isModalOpen && e.target.id === 'contactModal') closeModal();
     };
 
     if (isModalOpen) {
@@ -201,18 +204,11 @@ const handleServiceSelect = async (serviceType) => {
 
           <div className={styles.header__logoContainer}>
             <a href="/home-2">
-              <img 
-                src={logoImageUrl} 
-                alt="Orega" 
-                className={styles.header__logo}
-              />
+              <img src={logoImageUrl} alt="Orega" className={styles.header__logo} />
             </a>
           </div>
 
-          <nav 
-            className={`${styles.header__nav} ${isMobileNavOpen ? styles.show : ''}`}
-            id="mobile-nav"
-          >
+          <nav className={`${styles.header__nav} ${isMobileNavOpen ? styles.show : ''}`} id="mobile-nav">
             {navigation.map((item, index) => (
               <div 
                 key={index}
@@ -224,19 +220,14 @@ const handleServiceSelect = async (serviceType) => {
                   onClick={item.isContact ? toggleContactDropdown : undefined}
                 >
                   {item.label}
-                  {item.dropdownItems && (
-                    <span className={styles.caret}>&#9662;</span>
-                  )}
+                  {item.dropdownItems && <span className={styles.caret}>&#9662;</span>}
                 </a>
                 {item.dropdownItems && (
                   <div 
                     className={`${styles.dropdown} ${item.isContact && isContactDropdownOpen ? styles.open : ''} ${item.isContact ? styles.contactDropdown : ''}`}
                   >
                     {item.dropdownItems.map((drop, dropIndex) => (
-                      <div 
-                        key={dropIndex}
-                        className={`${styles.dropdownItem} ${drop.subItems ? styles.hasSubmenu : ''}`}
-                      >
+                      <div key={dropIndex} className={`${styles.dropdownItem} ${drop.subItems ? styles.hasSubmenu : ''}`}>
                         <a 
                           href={drop.url}
                           className={item.isContact ? styles.contactOption : ''}
@@ -248,33 +239,13 @@ const handleServiceSelect = async (serviceType) => {
                               e.preventDefault();
                               handleServiceSelect(drop.serviceType);
                             } else if (item.label === "Locations" && drop.isCity) {
-                                e.preventDefault();
-                                handleCityClick(drop.label); // fetch all offices for that city from HubDB
-                              }
-
+                              e.preventDefault();
+                              handleCityClick(drop.label);
+                            }
                           }}
                         >
                           {drop.label}
-                          {drop.subItems && (
-                            <span className={styles.caretRight}>&#9656;</span>
-                          )}
                         </a>
-                        {drop.subItems && (
-                          <div className={styles.submenu}>
-                            {drop.subItems.map((sub, subIndex) => (
-                              <a 
-                                key={subIndex} 
-                                href={sub.url}
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  handleOfficeSelect(sub.label);
-                                }}
-                              >
-                                {sub.label}
-                              </a>
-                            ))}
-                          </div>
-                        )}
                       </div>
                     ))}
                   </div>
@@ -285,74 +256,73 @@ const handleServiceSelect = async (serviceType) => {
         </div>
       </header>
 
-    {/* Office Popup */}
-{showPopup && (
-  <div className={styles.popupOverlay}>
-    <div className={styles.popupCard}>
-      <button className={styles.closeBtn} onClick={closePopup}>×</button>
+      {/* Office/Service Popup */}
+      {showPopup && (
+        <div className={styles.popupOverlay}>
+          <div className={styles.popupCard}>
+            <button className={styles.closeBtn} onClick={closePopup}>×</button>
 
-      {!selectedOffice ? (
-        <>
-          {/* Dynamic Heading based on city or service */}
-          <h2 className={styles.popupTitle}>
-            {officeList[0]?.values?.city
-              ? `Luxury Offices in ${officeList[0].values.city}` 
-              : officeList[0]?.values?.type 
-                ? `Offices with ${capitalizeFirstLetter(officeList[0].values.type)}`
-                : "Our Offices"}
-          </h2>
-          <p className={styles.popupSubtitle}>
-            {officeList[0]?.values?.city 
-              ? "Here are some of our offices you can choose from." 
-              : officeList[0]?.values?.type 
-                ? `Here are some of our offices where you can book ${officeList[0].values.type.toLowerCase()}.` 
-                : "Here are some of our offices you can choose from."}
-          </p>
+            {!selectedOffice ? (
+              <>
+                <h2 className={styles.popupTitle}>
+                  {popupContext === "city" && officeList[0]?.values?.city
+                    ? `Luxury Offices in ${officeList[0].values.city}`
+                    : popupContext === "service" && selectedService
+                      ? serviceContent[selectedService]?.title
+                      : "Our Offices"}
+                </h2>
 
-          {loading ? (
-            <p>Loading offices...</p>
-          ) : officeList.length > 0 ? (
-            <div className={styles.officeGrid}>
-              {officeList.map((office) => (
-                <div key={office.id} className={styles.officeCard}>
-                  <img 
-                    src={office.values.image?.url || "https://via.placeholder.com/300x200"} 
-                    alt={office.values.name} 
-                  />
-                  <h3 className={styles.officeHeading}>{office.values.name}</h3>
-                  <button 
-                    className={styles.viewDetailsBtn} 
-                    onClick={() => handleOfficeClick(office)}
-                  >
-                    View Details
-                  </button>
+                <p className={styles.popupSubtitle}>
+                  {popupContext === "city" && officeList[0]?.values?.city
+                    ? "Here are some of our offices you can choose from."
+                    : popupContext === "service" && selectedService
+                      ? serviceContent[selectedService]?.subtitle
+                      : "Here are some of our offices you can choose from."}
+                </p>
+
+                {loading ? (
+                  <p>Loading offices...</p>
+                ) : officeList.length > 0 ? (
+                  <div className={styles.officeGrid}>
+                    {officeList.map((office) => (
+                      <div key={office.id} className={styles.officeCard}>
+                        <img 
+                          src={office.values.image?.url || "https://via.placeholder.com/300x200"} 
+                          alt={office.values.name} 
+                        />
+                        <h3 className={styles.officeHeading}>{office.values.name}</h3>
+                        <button 
+                          className={styles.viewDetailsBtn} 
+                          onClick={() => handleOfficeClick(office)}
+                        >
+                          View Details
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p>No offices found.</p>
+                )}
+              </>
+            ) : (
+              <>
+                <h2 className={styles.popupTitle}>{selectedOffice.name}</h2>
+                <div className={styles.imageContainer}>
+                  <img src={selectedOffice.image} alt={selectedOffice.name} className={styles.fullImage} />
+                  <div className={styles.textContainer}>
+                    <h3>{selectedOffice.city}</h3>
+                    <p>{selectedOffice.description}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
-          ) : (
-            <p>No offices found.</p>
-          )}
-        </>
-      ) : (
-        <>
-          <h2 className={styles.popupTitle}>{selectedOffice.name}</h2>
-          <div className={styles.imageContainer}>
-            <img src={selectedOffice.image} alt={selectedOffice.name} className={styles.fullImage} />
-            <div className={styles.textContainer}>
-              <h3>{selectedOffice.city}</h3>
-              <p>{selectedOffice.description}</p>
-            </div>
+                <div className={styles.popupFooter}>
+                  <button className={styles.exploreBtn}>Get a Quote</button>
+                  <button className={styles.BookBtn}>Book a Viewing</button>
+                </div>
+              </>
+            )}
           </div>
-          <div className={styles.popupFooter}>
-            <button className={styles.exploreBtn}>Get a Quote</button>
-            <button className={styles.BookBtn}>Book a Viewing</button>
-          </div>
-        </>
+        </div>
       )}
-    </div>
-  </div>
-)}
-
 
       {/* Contact Form Modal */}
       {isModalOpen && (
