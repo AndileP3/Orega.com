@@ -15,7 +15,7 @@ export function Component({ fieldValues }) {
             {fieldValues.left_paragraph ||
               "Partner with Orega to transform your real estate and drive commercial success. Our Grade A spaces attract more tenants, increase occupancy and boost your income - turning your property into a high-performing asset."}
           </p>
-          <a href={fieldValues.button_url || '#'} className={styles.button}>
+          <a href={fieldValues.button_url || '/contact'} className={styles.button}>
             {fieldValues.button_text || 'Book your free evaluation'}
           </a>
         </div>
