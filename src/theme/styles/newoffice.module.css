@@ -3,7 +3,7 @@
   background-size: cover;
   background-position: center;
   padding: 6rem 2rem;
-  max-height: 1000px;
+  max-height: 900px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -47,4 +47,25 @@
 .button:hover {
     color: white;
   background-color: #0E9296;
+}
+.newOfficeSection2 {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 6rem 0rem;
+  max-height: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.overlayBox2 {
+  background-color: rgba(255, 255, 255, 1);
+  padding: 2rem;
+  width: 33.33333%;
+  margin-right: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
