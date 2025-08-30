@@ -418,6 +418,7 @@ input[type="checkbox" i] {
   background: rgba(20, 20, 20, 0.65);
   display: flex; justify-content: center; align-items: center;
   z-index: 200;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Popup Card */
@@ -469,10 +470,12 @@ input[type="checkbox" i] {
   padding: 0.7rem 1.4rem;
   cursor: pointer; font-weight: bold;
   margin: 0.5rem;
+  text-decoration:none;
 }
 .BookBtn {
   background: transparent; color: #0e9296;
   border: 1px solid #0e9296;
+  text-decoration:none;
   border-radius: 25px;
   padding: 0.7rem 1.4rem;
   cursor: pointer; font-weight: bold;
