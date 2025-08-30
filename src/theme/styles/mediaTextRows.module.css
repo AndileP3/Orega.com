@@ -172,6 +172,7 @@
   align-items: center;
   justify-content: center;
   z-index: 3000;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .card {
@@ -286,14 +287,21 @@
   font-weight: 700;
   max-width: 20%;
   cursor: pointer;
+  align-items:center;
 }
 
 .quoteBtn {
+   padding: 0.7rem 1.4rem;
+   text-align:center;
+  text-decoration:none;
   background: #FFD63C;
   color: #fff;
 }
 
 .bookBtn {
+   padding: 0.7rem 1.4rem;
+  text-decoration:none;
+    text-align:center;
   border: 2px solid #0E9296;
   background: transparent;
   color: #0E9296;
