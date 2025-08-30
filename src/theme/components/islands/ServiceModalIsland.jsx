@@ -132,10 +132,16 @@ export default function ServiceModalIsland({ fieldValues }) {
                 <p>{selectedOffice.description}</p>
               </div>
             </div>
+
             <div className={modalStyles.footerBtns}>
-              <button className={modalStyles.quoteBtn}>Get a Quote</button>
-              <button className={modalStyles.bookBtn}>Book a Viewing</button>
+              <a href="/contact" className={modalStyles.quoteBtn}>
+                Get a Quote
+              </a>
+              <a href="/contact" className={modalStyles.bookBtn}>
+                Book a Viewing
+              </a>
             </div>
+
           </>
         )}
       </div>
