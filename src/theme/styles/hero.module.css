@@ -554,8 +554,10 @@ body {
   font-weight: bold;
   transition: 0.2s ease;
   margin: 0.5rem;
+  text-decoration: none;
 }
 .BookBtn {
+  text-decoration: none;
   background: transparent;
   color: #0e9296;
   border: 1px solid #0e9296;
