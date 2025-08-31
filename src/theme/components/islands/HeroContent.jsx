@@ -251,10 +251,15 @@ export default function HeroContent({ fieldValues }) {
               <p>No office details found for "{selectedLocation}"</p>
             )}
 
-            <div className={styles.popupFooter}>
-              <button className={styles.exploreBtn}>Get a Quote</button>
-              <button className={styles.BookBtn}>Book a Viewing</button>
-            </div>
+         <div className={styles.popupFooter}>
+                  <a href="/contact" className={styles.exploreBtn}>
+                    Get a Quote
+                  </a>
+                  <a href="/contact" className={styles.BookBtn}>
+                    Book a Viewing
+                  </a>
+                </div>
+  
           </div>
         </div>
       )}
