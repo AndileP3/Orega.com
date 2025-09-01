@@ -14,7 +14,7 @@ export function Component({ fieldValues }) {
     <section
       className={styles.heroSection}
       style={{
-        backgroundImage: `linear-gradient(rgba(58, 66, 82, 0.7), rgba(52, 69, 94, 0.7)), url('${bgImageUrl}')`,
+        backgroundImage: `linear-gradient(rgba(24, 25, 28, 0.7), rgba(21, 31, 46, 0.7)), url('${bgImageUrl}')`,
       }}
     >
       <div className={styles.contentWrapper}>
