@@ -18,6 +18,25 @@ export function Component({ fieldValues }) {
           <a href={fieldValues.button_url || '/contact'} className={styles.button}>
             {fieldValues.button_text || 'Book your free evaluation'}
           </a>
+
+          {/* 3 Small Images Below the Button */}
+<div className={styles.imageRow}>
+  <img
+    src="https://www.orega.com/hs-fs/hubfs/4-Sep-12-2024-03-20-17-4294-PM.png?width=220&height=220&name=4-Sep-12-2024-03-20-17-4294-PM.png"
+    alt="Small Image 1"
+    className={styles.smallImage}
+  />
+  <img
+    src="https://www.orega.com/hs-fs/hubfs/3-Sep-12-2024-03-20-17-6677-PM.png?width=220&height=220&name=3-Sep-12-2024-03-20-17-6677-PM.png"
+    alt="Small Image 2"
+    className={styles.smallImage}
+  />
+  <img
+    src="https://www.orega.com/hs-fs/hubfs/2-Sep-12-2024-03-20-17-7631-PM.png?width=220&height=220&name=2-Sep-12-2024-03-20-17-7631-PM.png"
+    alt="Small Image 3"
+    className={styles.smallImage}
+  />
+</div>
         </div>
 
         {/* Right Column */}
