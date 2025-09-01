@@ -10,7 +10,8 @@
 }
 
 .contentWrapper {
-  height: 80vh;
+  height: auto;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
@@ -91,4 +92,20 @@
   .contentWrapper {
     grid-template-columns: 1fr;
   }
+}
+
+
+.imageRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 20%; /* same as button width */
+  margin-top: 1rem;
+}
+
+.smallImage {
+  flex: 1;
+  height: 10vh;
+  border-radius: 8px;
+  object-fit: cover;
 }
