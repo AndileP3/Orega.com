@@ -1,5 +1,6 @@
 import { ModuleFields, TextField, RichTextField, ImageField } from '@hubspot/cms-components/fields';
 import styles from '../../styles/benHutchen.module.css';
+import { FaPhoneAlt, FaEnvelope, FaLinkedin } from "react-icons/fa";
 
 export function Component({ fieldValues }) {
   return (
@@ -36,15 +37,26 @@ export function Component({ fieldValues }) {
             {fieldValues.left_paragraph ||
               "Formerly Group Head of Property at Clarendon Business Centres, Ben has a strong track record at Avison Young and Strutt & Parker. With extensive UK flexible workspace and real estate experience, he is a firm believer in the transformative value of flex for both landlords and occupiers."}
           </p>
-          <a href={fieldValues.button_url || '#'} className={styles.contactButton}>
-            {fieldValues.button_text1 || '+447795 842497'}
-          </a>
-           <a href={fieldValues.button_url || '#'} className={styles.contactButton}>
-            {fieldValues.button_text2 || 'ben.hutchen@orega.com'}
-          </a>
-           <a href={fieldValues.button_url || '#'} className={styles.contactButton}>
-            {fieldValues.button_text3 || 'Connect on LinkedIn'}
-          </a>
+       <a href={fieldValues.button_url || "#"} className={styles.contactButton}>
+        <svg xmlns="http://www.w3.org/2000/svg" className={styles.icon} viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.2.48 2.53.73 3.88.73a1 1 0 011 1V20a1 1 0 01-1 1C10.29 21 3 13.71 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.25 2.68.73 3.88a1 1 0 01-.21 1.11l-2.4 2.4z" />
+        </svg>
+        {fieldValues.button_text1 || "+447795 842497"}
+      </a>
+
+      <a href={fieldValues.button_url || "#"} className={styles.contactButton}>
+        <svg xmlns="http://www.w3.org/2000/svg" className={styles.icon} viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
+        {fieldValues.button_text2 || "ben.hutchen@orega.com"}
+      </a>
+
+      <a href={fieldValues.button_url || "#"} className={styles.contactButton}>
+        <svg xmlns="http://www.w3.org/2000/svg" className={styles.icon} viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 0h-14c-2.8 0-5 2.2-5 5v14c0 2.8 2.2 5 5 5h14c2.7 0 5-2.2 5-5v-14c0-2.8-2.3-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.3c-1 0-1.7-.7-1.7-1.7s.7-1.7 1.7-1.7c1 0 1.7.7 1.7 1.7s-.7 1.7-1.7 1.7zm13.5 10.3h-3v-4.5c0-1.1 0-2.5-1.6-2.5s-1.9 1.2-1.9 2.4v4.6h-3v-9h2.9v1.2h.1c.4-.8 1.5-1.6 3.1-1.6 3.3 0 3.9 2.2 3.9 5.1v4.3z"/>
+        </svg>
+        {fieldValues.button_text3 || "Connect on LinkedIn"}
+      </a>
         </div>
       </div>
     </section>
