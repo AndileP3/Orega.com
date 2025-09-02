@@ -36,6 +36,14 @@ export function Component({ fieldValues }) {
     alt="Small Image 3"
     className={styles.smallImage}
   />
+
+    <img
+    src="https://www.orega.com/hs-fs/hubfs/2-Sep-12-2024-03-20-17-7631-PM.png?width=220&height=220&name=2-Sep-12-2024-03-20-17-7631-PM.png"
+    alt="Small Image 3"
+    className={styles.smallImage}
+  />
+
+  
 </div>
         </div>
 
