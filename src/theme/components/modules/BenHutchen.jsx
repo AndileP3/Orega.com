@@ -1,6 +1,5 @@
 import { ModuleFields, TextField, RichTextField, ImageField } from '@hubspot/cms-components/fields';
 import styles from '../../styles/benHutchen.module.css';
-import { FaPhoneAlt, FaEnvelope, FaLinkedin } from "react-icons/fa";
 
 export function Component({ fieldValues }) {
   return (
