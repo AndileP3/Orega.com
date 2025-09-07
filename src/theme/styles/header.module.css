@@ -576,3 +576,128 @@ input[type="checkbox" i] {
   object-fit: cover;
   margin-right: 1rem;
 }
+
+
+.searchBox {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.searchBox::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.searchBox:focus {
+  border-color: #0073e6; /* Orega brand blue */
+  box-shadow: 0 0 0 4px rgba(0, 115, 230, 0.2);
+  background-color: #fff;
+}
+
+
+.floatingBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 15px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+.floatingBtn:hover {
+  background-color: #005bb5;
+}
+
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+.popupBox {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+.floatingBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #0073e6;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.floatingBtn:hover {
+  background: #005bb5;
+}
+
+.searchIconBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #ffffffff;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background-color: #0E9296;
+  z-index: 10;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.searchIconBtn:hover {
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  background-color: #3b8e91ff;
+}
