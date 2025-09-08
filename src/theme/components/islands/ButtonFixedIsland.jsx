@@ -90,6 +90,8 @@ export default function ButtonIsland() {
             {loading ? (
               <p>Loading offices...</p>
             ) : filteredOffices.length > 0 ? (
+              <>
+              <a href="/contact" className={styles.officeLink}>
               <div className={styles.officeGrid}>
                 {filteredOffices.map((office) => (
                   <div key={office.id} className={styles.officeCard}>
@@ -107,6 +109,8 @@ export default function ButtonIsland() {
                   </div>
                 ))}
               </div>
+              </a>
+              </>
             ) : (
               <p>No offices match your search.</p>
             )}
