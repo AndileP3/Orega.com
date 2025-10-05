@@ -12,38 +12,38 @@ export function Component({ fieldValues }) {
       <form className={styles.form}>
         <div className={styles.row}>
           <div className={styles.field}>
-            <label>First Name</label>
+            <label>First Name<span className={styles.required}>*</span></label>
             <input type="text" placeholder="Enter first name" className={styles.input} />
           </div>
           <div className={styles.field}>
-            <label>Last Name</label>
+            <label>Last Name<span className={styles.required}>*</span></label>
             <input type="text" placeholder="Enter last name" className={styles.input} />
           </div>
         </div>
         <div className={styles.row}>
           <div className={styles.field}>
-            <label>Phone Number</label>
+            <label>Phone Number<span className={styles.required}>*</span></label>
             <input type="tel" placeholder="Enter phone number" className={styles.input} />
           </div>
           <div className={styles.field}>
-            <label>Email</label>
+            <label>Email<span className={styles.required}>*</span></label>
             <input type="email" placeholder="Enter email address" className={styles.input} />
           </div>
         </div>
         <div className={styles.row}>
           <div className={styles.field}>
-            <label>Company Name</label>
+            <label>Company Name<span className={styles.required}>*</span></label>
             <input type="text" placeholder="Enter company name" className={styles.input2} />
           </div>
           </div>
           
         <div className={styles.row}>
         <div className={styles.field}>
-          <label>How many square feet is your space?</label>
+          <label>How many square feet is your space?<span className={styles.required}>*</span></label>
           <input type="text" placeholder="e.g. 1200" className={styles.input} />
         </div>
         <div className={styles.field}>
-            <label>Where is your space?</label>
+            <label>Where is your space?<span className={styles.required}>*</span></label>
             <input type="text" placeholder="Location of space" className={styles.input} />
           </div>
           </div>
