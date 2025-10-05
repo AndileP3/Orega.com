@@ -97,3 +97,6 @@
   background-color: #07374E;
   color: white;
 }
+.required {
+  color: red;
+}
