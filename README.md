@@ -5,7 +5,7 @@
 
 A clean and scalable office rental platform built with **React and HubSpot CMS** to showcase office spaces, services, and enable easy contact with clients.
 
-[Live Site](#) · [Report Bug](#) · [Request Feature](#)
+
 
 </div>
 
